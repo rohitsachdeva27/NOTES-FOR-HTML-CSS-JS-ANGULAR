@@ -16,7 +16,7 @@
 # HTML5 is the latest version of HTML. It introduced new elements (e.g., <video>, <audio>, <canvas>) and APIs, improved support for multimedia, and enhanced semantic markup for better document structure.
 
 5. Explain the difference between inline and block-level elements?
-# Inline elements do not start on a new line and only take up as much width as necessary. Examples include <a>, <span>, and <strong>. Block-level elements, on the other hand, start on a new line and take up the full width of their parent container. Examples include <div>, <p>, and <h1>.
+# Inline elements do not start on a new line and only take up as much width as necessary. Examples include <a>, <span>, and <strong>. Block-level elements, on the other hand, start on a new line and take up the full width of their parent container.
 
 6. How do you create a hyperlink in HTML?
 # You can create a hyperlink using the a (anchor) element. Example: <a href="https://www.example.com">Visit Example</a>.
