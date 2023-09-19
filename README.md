@@ -10,7 +10,7 @@
   # HTML tags are used to mark or define elements within an HTML document. They provide structure and formatting instructions for web browsers to display content correctly.
   
 3. What is the purpose of the <!DOCTYPE> declaration in an HTML document?
-  # The <!DOCTYPE> declaration specifies the document type and version of HTML used in a web page. It helps the browser render the page correctly by defining the rules and syntax for the     document.
+  # The <!DOCTYPE> declaration specifies the document type and version of HTML used in a web page. It helps the browser render the page correctly by defining the rules and syntax for the document.
 
 4. What is the difference between HTML and HTML5?
   # HTML5 is the latest version of HTML. It introduced new elements (e.g., <video>, <audio>, <canvas>) and APIs, improved support for multimedia, and enhanced semantic markup for better document structure.
@@ -25,4 +25,4 @@
 # The <meta> tag is used to provide metadata about the web page, such as character encoding, viewport settings for responsive design, and page description for search engines.
 
 
-# CSS
+## CSS
