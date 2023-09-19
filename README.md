@@ -19,7 +19,7 @@
 # Inline elements do not start on a new line and only take up as much width as necessary. Examples include <a>, <span>, and <strong>. Block-level elements, on the other hand, start on a new line and take up the full width of their parent container. Examples include <div>, <p>, and <h1>.
 
 6. How do you create a hyperlink in HTML?
-# You can create a hyperlink using the <a> (anchor) element. Example: <a href="https://www.example.com">Visit Example</a>.
+# You can create a hyperlink using the a (anchor) element. Example: <a href="https://www.example.com">Visit Example</a>.
 
 7. What is the purpose of the <meta> tag in HTML?
 # The <meta> tag is used to provide metadata about the web page, such as character encoding, viewport settings for responsive design, and page description for search engines.
