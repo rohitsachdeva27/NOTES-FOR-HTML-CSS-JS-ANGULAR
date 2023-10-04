@@ -39,5 +39,6 @@
 3. What is the difference between display: none; and visibility: hidden;?
 # display: none; completely removes an element from the document flow, making it invisible and not taking up any space.
 # visibility: hidden; makes an element invisible, but it still occupies space in the layout.
+
 4. 
 
