@@ -40,5 +40,17 @@
 # display: none; completely removes an element from the document flow, making it invisible and not taking up any space.
 # visibility: hidden; makes an element invisible, but it still occupies space in the layout.
 
-4. 
+4. What is the difference between class and ID selectors in CSS?
+# Class selectors are preceded by a period (.) and can be used to apply styles to multiple elements on a page.
+# ID selectors are preceded by a hash symbol (#) and are used to select and style a single unique element on a page.
+
+5. What is the default value of the position property in CSS?
+# The default value of the position property is static.
+
+6. How can you center an element horizontally using CSS?
+# You can center an element horizontally by using margin: 0 auto; if it has a specified width.
+
+7. What is the difference between display: block; and display: inline;?
+# display: block; makes an element a block-level element, causing it to take up the full width available and start on a new line.
+# display: inline; makes an element an inline-level element, allowing it to flow within the content and not start on a new line
 
