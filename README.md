@@ -127,13 +127,11 @@
 12.  what are various position properties ?
  # The CSS position property is used to control the positioning of an element within its containing element.
  # There are several values for the position property -
-  ### Static (Default): Elements are positioned in the normal flow of the document. This is the default value, and elements are not affected by the top, right, bottom, or left properties.
-  ### Relative: Elements are positioned relative to their normal position in the document flow. You can use the top, right, bottom, and left properties to offset the element from its normal     position.
-
-  ### Absolute: Elements are positioned relative to their nearest positioned ancestor (an ancestor with a position other than static). If there is no positioned ancestor, the element is positioned relative to the initial containing block (usually the viewport). 
-
-  ### Fixed: Elements are positioned relative to the viewport, and they do not move even when the page is scrolled. Fixed-positioned elements are also taken out of the normal document flow.
-  ### Sticky: Elements are positioned based on the user's scroll position. They behave like relative positioning until they reach a specified offset from the top of the viewport, at which point they become fixed.
+  # Static (Default): Elements are positioned in the normal flow of the document. This is the default value, and elements are not affected by the top, right, bottom, or left properties.
+  # Relative: Elements are positioned relative to their normal position in the document flow. You can use the top, right, bottom, and left properties to offset the element from its normal     position.
+  # Absolute: Elements are positioned relative to their nearest positioned ancestor (an ancestor with a position other than static). If there is no positioned ancestor, the element is positioned relative to the initial containing block (usually the viewport). 
+  # Fixed: Elements are positioned relative to the viewport, and they do not move even when the page is scrolled. Fixed-positioned elements are also taken out of the normal document flow.
+  # Sticky: Elements are positioned based on the user's scroll position. They behave like relative positioning until they reach a specified offset from the top of the viewport, at which point they become fixed.
 
 
      
