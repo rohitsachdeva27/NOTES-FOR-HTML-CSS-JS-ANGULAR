@@ -133,6 +133,19 @@
   # Fixed: Elements are positioned relative to the viewport, and they do not move even when the page is scrolled. Fixed-positioned elements are also taken out of the normal document flow.
   # Sticky: Elements are positioned based on the user's scroll position. They behave like relative positioning until they reach a specified offset from the top of the viewport, at which point they become fixed.
 
+13. what is css3 ?
+# CSS3, short for "Cascading Style Sheets Level 3," is the latest major revision of the CSS.
+# New Features of css 3:
+# New Selectors: CSS3 introduces powerful new selectors that enable more precise targeting of HTML elements, including attribute selectors, pseudo-elements, and pseudo-classes.
+# Box Model Enhancements: CSS3 introduces properties like border-radius and box-shadow for creating rounded corners and drop shadows on elements, respectively.
+# Gradient Backgrounds: CSS3 provides the ability to create gradient backgrounds using the linear-gradient() and radial-gradient() functions, eliminating the need for background images in some cases.
+# Text Effects: CSS3 includes text-related properties for controlling text shadow, text overflow behavior, and text wrapping.
+# Transitions and Animations: CSS3 introduces the transition and animation properties, allowing developers to create smooth transitions and animations for various CSS properties.
+# Media Queries: CSS3 enhances media queries, enabling designers to create responsive designs that adapt to different screen sizes and devices.
+
+14. what are css combinators?
+# 
+
 
      
 
