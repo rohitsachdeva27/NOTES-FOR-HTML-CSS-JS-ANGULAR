@@ -3,7 +3,7 @@
 # HTML
 
 1. what is HTML ?
-# HTML stands for Hyper Text Markup Language. it is a standard language for creating web pages. \n
+# HTML stands for Hyper Text Markup Language. it is a standard language for creating web pages.
 # mark up language is a language which uses tags to define something.
 
 2. what are tags ?
