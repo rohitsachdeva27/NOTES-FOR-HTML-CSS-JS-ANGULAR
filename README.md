@@ -54,3 +54,36 @@
 # display: block; makes an element a block-level element, causing it to take up the full width available and start on a new line.
 # display: inline; makes an element an inline-level element, allowing it to flow within the content and not start on a new line
 
+8. what is cascading styles in css ?
+  # Cascading order in css determines how conflicting or overlapping rules are applied for html elements.
+
+  eg : 
+  <style>  
+    p{
+      color:red;
+    }
+
+      .text{
+        color:blue;
+      }
+
+    #content{
+      color:pink
+    }
+    
+  </style>
+  
+  <p class="text" id="content"> text in p tag </p>
+
+
+  here p will be of pink color because id selector has the highest specificity.
+
+  order of specificity is :
+  
+  1. Inline styles
+  2. id selector
+  3. class selector
+  4. inheritance.
+     
+9. 
+
