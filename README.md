@@ -85,5 +85,27 @@
   3. class selector
   4. inheritance.
      
-9. 
+9. how can i add background to element?
+# we can add background to html element using background css property.
+#  for setting color we can use --> background-color: <color>
+# for background-image : url(image url)
+# background-repeat:no-repeat/ repeat-x/repeat-y
+# background-attachment: fixed
+# shorthand : 
+# background : color image_url repeat attachment
+
+
+10. what is box model in css ?
+ #   box model is fundamental concept in css and html. it tell how the content is and how much padding , margin and width and height of that element.
+ ![image](https://github.com/rohitsachdeva27/WEB_DEVELOPEMENT_INTERVIEW_QUESTIONS/assets/82018198/5750b856-33a9-4d48-b480-0807087d59d5)
+
+
+11.  
+
+12. 
+13. 
+14. 
+15. 
+
+10. 
 
