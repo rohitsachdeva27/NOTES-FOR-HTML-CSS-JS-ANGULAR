@@ -95,7 +95,7 @@
 # background : color image_url repeat attachment.
 
 10. what is box model in css ?
- #   box model is fundamental concept in css and html. it tell how the content is and how much padding , margin and width and height of that element.
+ # box model is fundamental concept in css and html. it tell how the content is and how much padding , margin and width and height of that element.
  there are various elements in the css box model:
         1.Content
           This is the innermost part of the box, where the actual content, such as text, images, or other HTML elements, is displayed. It has a                width and a height.
@@ -112,14 +112,20 @@
 
  ![image](https://github.com/rohitsachdeva27/WEB_DEVELOPEMENT_INTERVIEW_QUESTIONS/assets/82018198/5750b856-33a9-4d48-b480-0807087d59d5)
 
+11.  what are the various text css properties?
+# 1.direction
+# 2 text-decoration-line : underline/overline
+# 3 text-decoration-color : color
+# 4 text-decoration-style : solid/double/dotted
+# 5 text-decoration-thickness: 5px 
+# shorthand : text-decoration : line color style thickness
+# 6 text-transform: uppercase/lowercase/capitalize
+# 7 text-indent : 10px
+# 8 letter-spacing: 2px
+# 9 line-height:1/0.8
 
+12.  what are various position properties ?
+ #
 
-11.  
-
-12. 
-13. 
-14. 
-15. 
-
-10. 
+     
 
