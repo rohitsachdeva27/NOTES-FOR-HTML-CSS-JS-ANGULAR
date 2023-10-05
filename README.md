@@ -97,7 +97,35 @@
 
 10. what is box model in css ?
  #   box model is fundamental concept in css and html. it tell how the content is and how much padding , margin and width and height of that element.
+ there are various elements in the css box model:
+        1.Content
+          This is the innermost part of the box, where the actual content, such as text, images, or other HTML elements, is displayed. It has a                width and a height.
+          
+        2.Padding:
+        The padding is the space between the content and the element's border
+
+        Border:
+        The border is a line or stroke that surrounds the content and padding. It separates the content from the margin.
+
+        Margin:
+        The margin is the space between the border of the element and adjacent elements in the layout.
+
+   +-------------------+
+   |      Margin       |
+   |                   |
+   |  +-------------+  |
+   |  |   Border    |  |
+   |  |             |  |
+   |  |   Padding   |  |
+   |  |             |  |
+   |  |   Content   |  |
+   |  |             |  |
+   |  +-------------+  |
+   |                   |
+   +-------------------+
+
  ![image](https://github.com/rohitsachdeva27/WEB_DEVELOPEMENT_INTERVIEW_QUESTIONS/assets/82018198/5750b856-33a9-4d48-b480-0807087d59d5)
+
 
 
 11.  
