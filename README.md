@@ -31,10 +31,8 @@
   # css stands for cascading style sheet.it is used for decorating or presenting the html pages.
 
 2. what are ways to include the css in our web page?
-  # there are 3 ways to include css in web page.
-  ## inline : when we directly apply the css or style to the html element then it is inline way of applying css.
-  ## internal : Embedding CSS within <style> tags in the HTML <head> section.
-  ## External: Linking to an external CSS file using the <link> element.
+  # there are 3 ways to include css in web page.  ## inline : when we directly apply the css or style to the html element then it is inline way of applying css.   ## internal : Embedding CSS within <style> tags in the HTML <head> section.  ## External: Linking to an external CSS file using the <link> element.
+  
 
 3. What is the difference between display: none; and visibility: hidden;?
 # display: none; completely removes an element from the document flow, making it invisible and not taking up any space.
