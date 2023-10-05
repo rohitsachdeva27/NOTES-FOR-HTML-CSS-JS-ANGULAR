@@ -92,8 +92,7 @@
 # background-repeat:no-repeat/ repeat-x/repeat-y
 # background-attachment: fixed
 # shorthand : 
-# background : color image_url repeat attachment
-
+# background : color image_url repeat attachment.
 
 10. what is box model in css ?
  #   box model is fundamental concept in css and html. it tell how the content is and how much padding , margin and width and height of that element.
@@ -110,19 +109,6 @@
         Margin:
         The margin is the space between the border of the element and adjacent elements in the layout.
 
-   +-------------------+
-   |      Margin       |
-   |                   |
-   |  +-------------+  |
-   |  |   Border    |  |
-   |  |             |  |
-   |  |   Padding   |  |
-   |  |             |  |
-   |  |   Content   |  |
-   |  |             |  |
-   |  +-------------+  |
-   |                   |
-   +-------------------+
 
  ![image](https://github.com/rohitsachdeva27/WEB_DEVELOPEMENT_INTERVIEW_QUESTIONS/assets/82018198/5750b856-33a9-4d48-b480-0807087d59d5)
 
