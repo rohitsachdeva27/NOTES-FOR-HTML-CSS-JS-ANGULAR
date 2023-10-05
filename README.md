@@ -31,12 +31,14 @@
   # css stands for cascading style sheet.it is used for decorating or presenting the html pages.
 
 2. what are ways to include the css in our web page?
-  # there are 3 ways to include css in web page.  ## inline : when we directly apply the css or style to the html element then it is inline way of applying css.   ## internal : Embedding CSS within <style> tags in the HTML <head> section.  ## External: Linking to an external CSS file using the <link> element.
+  # there are 3 ways to include css in web page.  
+  ## inline : when we directly apply the css or style to the html element then it is inline way of applying css.   
+  ## internal : Embedding CSS within <style> tags in the HTML <head> section.  
+  ## External: Linking to an external CSS file using the <link> element.
   
-
 3. What is the difference between display: none; and visibility: hidden;?
-# display: none; completely removes an element from the document flow, making it invisible and not taking up any space.
-# visibility: hidden; makes an element invisible, but it still occupies space in the layout.
+  # display: none; completely removes an element from the document flow, making it invisible and not taking up any space.
+  # visibility: hidden; makes an element invisible, but it still occupies space in the layout.
 
 4. What is the difference between class and ID selectors in CSS?
 # Class selectors are preceded by a period (.) and can be used to apply styles to multiple elements on a page.
@@ -123,7 +125,16 @@
 # 9 line-height:1/0.8
 
 12.  what are various position properties ?
- #
+ # The CSS position property is used to control the positioning of an element within its containing element.
+ # There are several values for the position property -
+  ### Static (Default): Elements are positioned in the normal flow of the document. This is the default value, and elements are not affected by the top, right, bottom, or left properties.
+  ### Relative: Elements are positioned relative to their normal position in the document flow. You can use the top, right, bottom, and left properties to offset the element from its normal     position.
+
+  ### Absolute: Elements are positioned relative to their nearest positioned ancestor (an ancestor with a position other than static). If there is no positioned ancestor, the element is positioned relative to the initial containing block (usually the viewport). 
+
+  ### Fixed: Elements are positioned relative to the viewport, and they do not move even when the page is scrolled. Fixed-positioned elements are also taken out of the normal document flow.
+  ### Sticky: Elements are positioned based on the user's scroll position. They behave like relative positioning until they reach a specified offset from the top of the viewport, at which point they become fixed.
+
 
      
 
