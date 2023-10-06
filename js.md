@@ -148,5 +148,289 @@ variables are the containers for storing data , we can declare js variables in 3
     A new Function
     A new RegExp
 
+#### 13. what are different data types in javascript ?
 
+    undefined -> variables which are not defined holds the value undefined
+    null -> when user inteyonally adds value null , data type is object.
+    number 
+    boolean
+    string 
+    object 
+
+
+####  what are operators ?
+
+There are various types of operators in js such as.
+    
+    a)Arithmetic operator
+    b) Assignment operator
+    c) Comparision Operator
+    d)logical Operator
+    e)bitwise operator
+    f)ternary operator
+
+
+#### what are various Arithmetic operators ?
+
+The various Arithmetic operator are.
+
+    let a=5,b=10
+
+    a) Addition (+)
+        used for addition of 2 values 
+            let result = a+b.
+            result = 15
+
+    b) Subtraction (-)
+        let result = b-a;
+            result = 5;
+
+    c) Multiplication (*)
+            let result = a*b;
+                result = 150;
+
+    d) division (/)
+            let result = b/a;
+            result = 2
+
+    e) Modulo (%) -- it gives remainder
+            let result = b%a;
+            result =0;
+
+    f) Exponetiation Operator(introduced in ecma 2016) (**)
+        let a=5;
+        exponentiation is similar to power 
+        a**2 means 5^2 or 5 power 2 which is 25 
+        a**2 gives = 25
+
+    g) Increment operator (++)
+        increment operator can be used as suffix and prefix 
+            let a=10,b=20;
+                ++a --> pre increment 
+                a++ -> post increment
+
+    Difference between the 2 is in pre increment number is incremented first and in post increment it is later.
+
+    eg ++a + b. -> it will output 31
+    because ++a will increment 10 to 11 then add 20         
+
+    a++ + b--> will give 30 
+    because it will first add numbers then increment value of a
+
+    h) Decrement operator (--)
+    same is for decrement operator. 
+    --a , a-- 
+
+#### what are Assignment operators ?
+The various assignment operators are :
+
+    a) = -> it is used to assign valye to variable.
+    eg: let a= 10
+
+    eg: let a=10;
+    a = a+20;
+
+    here a =30 because 10+20 will result into (30) the result will be assigned back to variable a using assignment operator.
+
+    there is also shorthand to this which is 
+    a+=20 which means a=a+20
+
+    similary a=a*20 can be written as 
+    a*=20
+
+
+
+#### what are comparison operator ?
+
+the comparison operators are :
+
+    a) == --> it is used to compare 2 values, it return true or false based on comparison.
+
+    b) === -> it is known as triple equal operator , the difference between == and === operator is that == operator looks to compare 2 values while === operator compares value and type.
+
+    eg : let a= 5 , b=5 
+
+    a==b -> returns true becayse a is 5 and b is also 5 
+
+    a===b --> it return true because value matches both are 5 and type , type of a is number and type of b is also number
+
+    eg :2 let a=5, b="5";
+    a==b --> it return true because both are 5
+    a===b --> false
+
+    value comparison :  5 ==='5' --> true
+    type comparison : number === 'syring' --> false
+
+    c)!= and !==
+
+    d) greater than(>) and less than (<)
+        let a=5,b=10;
+        a>b --> false;
+        b>a --> true 
+
+    e) greater than equal and less than equal (>= and <=)
+
+#### what are logical operators ?
+
+Logical operators in programming are used to perform logical operations on one or more boolean values or expressions. These operators allow you to combine, compare, and manipulate boolean values to make decisions and control the flow of your program. In most programming languages, logical operators include:
+
+1. **AND Operator (`&&`):**
+   - The AND operator returns `true` if both of its operands are `true`.
+   - It returns `false` if at least one of its operands is `false`.
+   - Example: `true && true` evaluates to `true`, while `true && false` evaluates to `false`.
+
+2. **OR Operator (`||`):**
+   - The OR operator returns `true` if at least one of its operands is `true`.
+   - It returns `false` only if both of its operands are `false`.
+   - Example: `true || false` evaluates to `true`, while `false || false` evaluates to `false`.
+
+3. **NOT Operator (`!`):**
+   - The NOT operator is a unary operator that negates (flips) the boolean value of its operand.
+   - It returns `true` if its operand is `false`, and `false` if its operand is `true`.
+   - Example: `!true` evaluates to `false`, and `!false` evaluates to `true`.
+
+Logical operators are commonly used in conditional statements (such as `if`, `else if`, and `while`) to control program flow based on conditions. They are also used to combine multiple conditions to create more complex logic.
+
+Additionally, logical operators follow short-circuiting behavior in many programming languages, which means they may not evaluate all of their operands. For example, in an `&&` expression, if the first operand is `false`, the second operand is not evaluated because the overall result will be `false` regardless of the second operand. This behavior can be leveraged for efficiency and to avoid potential errors in certain situations.
+
+#### what are ternary operator ?
+
+The ternary operator, often referred to as the conditional operator, is a concise way to write conditional statements in many programming languages, including JavaScript. It allows you to evaluate a condition and return one of two values based on whether the condition is true or false.
+
+The syntax of the ternary operator is as follows:
+
+```
+condition ? expression_if_true : expression_if_false
+```
+
+Here's how it works:
+
+- The `condition` is evaluated first. If it is `true`, the `expression_if_true` is executed, and its value becomes the result of the entire expression. If the `condition` is `false`, the `expression_if_false` is executed, and its value becomes the result.
+
+Here's an example in JavaScript:
+
+```javascript
+let isRaining = true;
+let weather = isRaining ? "Bring an umbrella" : "Leave your umbrella at home";
+
+console.log(weather); // Outputs: "Bring an umbrella"
+```
+
+In this example:
+
+- `isRaining` is the condition.
+- `"Bring an umbrella"` is the value returned if the condition is true.
+- `"Leave your umbrella at home"` is the value returned if the condition is false.
+
+The ternary operator is often used for simple conditional assignments or to make code more concise when the condition and the two possible outcomes are short expressions. However, for complex conditions or when the expressions involve multiple statements, using a regular `if...else` statement is usually more readable.
+
+#### what does + operator do ?
+
+While the primary purpose of the unary plus (`+`) operator in JavaScript is to convert values to numbers (when possible), it can be used in a few other ways or in combination with other operations:
+
+1. **Mathematical Operations:**
+   You can use the unary plus operator to perform mathematical operations. For example:
+
+   ```javascript
+   let x = 5;
+   let y = 10;
+   let sum = +x + +y; // Equivalent to 5 + 10, results in 15
+   ```
+
+2. **Parsing Numbers from Strings:**
+   It's commonly used to parse numeric values from user input, such as form fields or text boxes, where the input is received as a string. This is a common technique to ensure that user input is treated as a number.
+
+   ```javascript
+   let userInput = "42";
+   let numberValue = +userInput; // Converts the string "42" to the number 42
+   ```
+
+3. **Converting Number-Like Values:**
+   The unary plus operator can handle values that are "number-like" but not strictly numeric, such as numbers with trailing spaces.
+
+   ```javascript
+   let numberAsString = "42  ";
+   let numberValue = +numberAsString; // Converts "42  " to 42
+   ```
+
+4. **Converting Dates to Timestamps:**
+   You can use `+` to convert a `Date` object to a Unix timestamp (number of milliseconds since January 1, 1970).
+
+   ```javascript
+   let now = new Date();
+   let timestamp = +now; // Converts the Date object to a timestamp
+   ```
+
+5. **Using in Comparison:**
+   The unary plus operator can be used in comparisons to convert values to numbers before performing comparisons.
+
+   ```javascript
+   let str1 = "5";
+   let str2 = "10";
+   if (+str1 < +str2) {
+     console.log("str1 is less than str2");
+   }
+   ```
+
+In general, while the primary purpose of the unary plus operator is for type conversion to numbers, it can also be employed in various other contexts where type conversion or mathematical operations are needed. However, you should use it judiciously, as it may make the code less readable when used for purposes other than type conversion.
+
+#### what is difference between ?? and || operator ?
+
+The `??` operator and the `||` operator are both used in JavaScript for handling default values or providing fallback values, but they have some key differences:
+
+1. **Nullish Coalescing Operator (`??`):**
+   - The nullish coalescing operator, denoted as `??`, is used to provide a default value when a variable is `null` or `undefined`, but it does not provide a default value for other falsy values such as `0`, `""`, `false`, `NaN`, or empty objects.
+   - It specifically checks for `null` or `undefined` and short-circuits (returns the right-hand operand) if the left-hand operand is one of these values.
+   - It is designed to handle cases where you want to distinguish between null/undefined and other falsy values.
+
+   Example:
+   ```javascript
+   let x = null;
+   let y = x ?? "Default Value";
+   console.log(y); // Outputs: "Default Value"
+   ```
+
+2. **Logical OR Operator (`||`):**
+   - The logical OR operator, denoted as `||`, is used to provide a default value when a variable is falsy, which includes `null`, `undefined`, `0`, `""`, `false`, `NaN`, and empty objects.
+   - It short-circuits (returns the right-hand operand) if the left-hand operand is falsy.
+
+   Example:
+   ```javascript
+   let x = null;
+   let y = x || "Default Value";
+   console.log(y); // Outputs: "Default Value"
+   ```
+
+In summary, the key difference between `??` and `||` is their behavior when the left-hand operand is a falsy value other than `null` or `undefined`. The `??` operator only checks for `null` or `undefined`, whereas the `||` operator checks for any falsy value. Choose the operator that best fits your specific use case and the behavior you want for handling defaults.
+
+#### what does !! operator do ?
+
+    !! is the double NOT operator, which coerces the operand to a boolean value. It’ll convert truthy values to true and falsy values to false .
+
+    console.log(!!0);  == false
+    console.log(!!'');  == false
+    console.log(!!false);  == false
+    console.log(!!NaN); == false
+    console.log(!!undefined);  == false
+    console.log(!!null); == false
+
+#### what are truthy and falsy values ?
+
+    truthy values : truthy or true values (values which are not undefined or are not null)
+
+    a) non zero number
+    b) non empty strings
+    c) arrays
+    d) objects 
+    e) functions
+    f) NaN
+
+    Falsy Values 
+
+    a) 0 
+    b) -0 
+    c) false 
+    d) null
+    e) undefined
+    f) empty string
 
