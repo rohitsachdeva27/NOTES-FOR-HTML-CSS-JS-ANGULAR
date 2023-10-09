@@ -434,3 +434,67 @@ In summary, the key difference between `??` and `||` is their behavior when the 
     e) undefined
     f) empty string
 
+
+
+#### what are functions in javascript and how can we create a function ?
+
+A function is a block of code designed to perform particular task.
+
+function needs to be invoked to perform a task.
+ 
+ syntax
+
+    function name(parameter1, parameter2, parameter3) {
+     // code to be executed
+    }   
+
+parameter are basically the inputs to the functions. 
+
+    eg . function add (a,b){
+            console.log(a+b)
+        }
+
+
+
+### what is function invocation ?
+    consider we created a function to add 2 numbers.
+
+    function add (a,b){
+        console.log(a+b)
+    }
+
+this above function will not be called or return us the sum of 2 numbers , we have to call the function.
+
+clling function is known as function invocation.
+
+syntax:
+
+    function_name()
+
+
+### why do we need function ?
+
+    With functions you can reuse code
+
+    You can write code that can be used many times.
+
+    You can use the same code with different arguments, to produce different results.
+
+
+#### what is block ?
+
+    a block is denoted using curly braces {}.
+
+    anything enclosed inside this will be called inside a block.
+
+    eg . { // block starts
+    let a=10;    // defining variable a inside a block
+
+    } // block ends
+
+
+    block start: when curly braces or scope of block starts
+    block ends: when curly brarces or scope of block ends.
+
+
+
