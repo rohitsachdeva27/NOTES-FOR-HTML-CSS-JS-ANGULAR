@@ -496,5 +496,179 @@ syntax:
     block start: when curly braces or scope of block starts
     block ends: when curly brarces or scope of block ends.
 
+#### what is function declaration and function expression ?
+
+function declaration and function expression are 2 ways to define functions in js.
+
+function declaration : Function declaration defines a function using function keyword followed by function name.
+
+    function add(a, b) {
+        return a + b;
+    }
+
+function expression :  function expression defines a anonymous function, (a function without name is called anonymous function.) or a function assigned to a variable.
+
+    eg: var add = function(a,b){
+
+    }
+
+
+#### what are defualt arguments or default parameter values ?
+
+default parameter are a way to provide default values to function paramaters. 
+
+    eg : function add(a,b){
+        console.log(a+b)
+    }
+
+### add(5) 
+
+    it can clearly seen the function requires 2 arguments but during function call we passed just 1 , it will result in NaN because 5+undefined will result in NaN.
+
+    if we want,if user doesnot assign a value or pass a value to parameter then default value should be assigned to the variable, then we can use the default arguments.
+
+    When a function is called and an argument for a parameter is not provided, the default value is used instead. Default arguments are a convenient way to make functions more flexible and handle cases where not all arguments are provided by the caller.
+
+
+    function greet(name, greeting = 'Hello') {
+    console.log(`${greeting}, ${name}!`);
+    }
+
+    greet('Alice'); // Output: "Hello, Alice!"
+    greet('Bob', 'Hi'); // Output: "Hi, Bob!"
+
+
+#### Conditional Statements in js ?
+
+Conditional statements in JavaScript are used to make decisions in your code. They allow you to execute different blocks of code based on whether a specified condition evaluates to true or false. JavaScript provides several conditional statements, including:
+
+## if Statement: 
+
+    The if statement is the most basic conditional statement. It executes a block of code if a specified condition is true.
+
+## if...else Statement:
+    The if...else statement allows you to execute one block of code if a condition is true and another block if the condition is false.
+
+## Switch Statement:
+    The switch statement is used to test a variable against multiple values and execute different code blocks for each value.
+
+
+### what is If statement and how to use ?
+
+The if statement in JavaScript is a statement that allows you to execute a block of code if a specified condition evaluates to true.
+
+    if (condition) {
+    // Code to execute if the condition is true
+    }
+
+### condition: This is a boolean expression or any expression that can be evaluated to true or false. If the condition is true, the code block enclosed within the curly braces {} is executed. If the condition is false, the code block is skipped.
+
+    const age = 25;
+
+    if (age >= 18) {
+    console.log("You are an adult.");
+    }
+
+
+#### what is if..else statement ?
+
+in if statement we can execute block of code if condition execute to be true , but what if the condition is false.  
+In this case we can use if...else statement 
+
+### syntax:
+
+    if(condition){
+        // code to be executed if condition is true
+    }else{
+        // code to be executed if condition is false.
+    }
+
+#### what is if...else...else if statements ?
+
+The `if...else if...else` statement in JavaScript is an extension of the `if...else` statement that allows you to handle multiple conditions in a sequence. It provides a way to test a series of conditions, executing different blocks of code based on the first condition that evaluates to `true`. Here's the syntax:
+
+```javascript
+if (condition1) {
+  // Code to execute if condition1 is true
+} else if (condition2) {
+  // Code to execute if condition2 is true
+} else {
+  // Code to execute if none of the conditions are true
+}
+```
+
+- `condition1`, `condition2`, etc.: These are boolean expressions or expressions that can be evaluated to `true` or `false`. The conditions are evaluated in the order in which they are written. If `condition1` is `true`, it executes the code block associated with it. If `condition1` is `false`, it moves on to `condition2`, and so on.
+
+Here's an example of how the `if...else if...else` statement works:
+
+```javascript
+const temperature = 25;
+
+if (temperature > 30) {
+  console.log("It's hot outside.");
+} else if (temperature >= 20) {
+  console.log("The weather is pleasant.");
+} else {
+  console.log("It's cold outside.");
+}
+```
+
+In this example, it first checks if `temperature` is greater than 30. If that condition is `true`, it logs "It's hot outside." If the temperature is not greater than 30, it moves on to the next condition, which checks if the temperature is greater than or equal to 20. If that condition is `true`, it logs "The weather is pleasant." If neither condition is `true`, it executes the code in the `else` block, which logs "It's cold outside."
+
+The `if...else if...else` construct is useful when you have multiple conditions to check in a specific order and want to handle different scenarios based on the first condition that is satisfied.
+
+
+#### what is switch statement ?
+
+The `switch` statement in JavaScript is a conditional statement that is used to test a variable against multiple values or expressions and execute different code blocks based on the value that matches. It provides an alternative way to handle multiple conditions compared to a series of `if...else if...else` statements.
+
+The basic syntax of the `switch` statement looks like this:
+
+```javascript
+switch (expression) {
+  case value1:
+    // Code to execute if expression === value1
+    break;
+  case value2:
+    // Code to execute if expression === value2
+    break;
+  // more cases can follow
+  default:
+    // Code to execute if expression doesn't match any case
+}
+```
+
+Here's how the `switch` statement works:
+
+- The `switch` statement is provided with an `expression`, which is typically a variable or an expression that you want to compare against the `case` values.
+
+- Inside the `switch` statement, there are multiple `case` labels that represent different values or expressions to be compared to the `expression`.
+
+- If the `expression` matches one of the `case` values, the corresponding block of code associated with that `case` label is executed.
+
+- The `break` statement is used to exit the `switch` statement once a match is found. Without `break`, the code execution would continue into the next `case` block even if a match has already been found.
+
+- If none of the `case` values match the `expression`, the `default` block is executed.
+
+Here's an example of a `switch` statement:
+
+```javascript
+const day = "Monday";
+
+switch (day) {
+  case "Monday":
+    console.log("It's the start of the workweek.");
+    break;
+  case "Friday":
+    console.log("It's almost the weekend!");
+    break;
+  default:
+    console.log("It's a regular day.");
+}
+```
+
+In this example, the `switch` statement compares the `day` variable to different values and executes the corresponding code block based on the value that matches. In this case, it will execute the code in the "Monday" case because `day` is set to "Monday."
+
+The `switch` statement is particularly useful when you have a variable with multiple possible values and you want to simplify the handling of each value with different code blocks.
 
 
