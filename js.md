@@ -9,8 +9,7 @@
 ## Authors
 
 ### Rohit Sachdeva
-### email : codingtitans2@gmail.com
-### for any suggestions or queries mail to above email.
+### for any suggestions or queries mail to email : codingtitans2@gmail.com
 
 
 ## FAQ
