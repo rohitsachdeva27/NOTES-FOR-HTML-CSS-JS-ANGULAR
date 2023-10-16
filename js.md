@@ -670,4 +670,167 @@ In this example, the `switch` statement compares the `day` variable to different
 
 The `switch` statement is particularly useful when you have a variable with multiple possible values and you want to simplify the handling of each value with different code blocks.
 
+#### why do we need loop ?
+
+    loops are used to iterate the statements number of times. loops help us to reduce redundancy.
+
+    without loop : 
+    eg. if we want to print number from 1 to 5 without loops , we do like 
+
+    console.log(1)
+    console.log(2)
+    console.log(3)
+    console.log(4)
+    console.log(5)
+
+    with loops we can reduce the following line of the code significantly.
+
+#### Different Kinds of Loops ?
+
+    for - loops through a block of code a number of times
+    for/in - loops through the properties of an object
+    for/of - loops through the values of an iterable object
+    while - loops through a block of code while a specified condition is true
+    do/while - also loops through a block of code while a specified condition is true
+
+
+#### what is for-loop ?
+
+syntax:
+
+    for (initialization; condition; update) {
+    // Code to be executed in each iteration
+    }
+
+
+    The "initialization" part is executed only once, at the beginning of the loop, to set up the initial conditions.
+
+    The "condition" is checked before each iteration. If it's true, the loop executes the code block inside the loop. If it's false, the loop terminates.
+
+    After each iteration of the loop, the "update" statement is executed, which typically increments or decrements the control variable.
+
+    eg :
+        for (let i = 1; i <= 5; i++) {
+        console.log(i);
+        }
+
+#### While loop ?
+    A `while` loop in JavaScript is a control flow structure that repeatedly executes a block of code as long as a specified condition is true. It is often used when you don't know in advance how many iterations are needed and want to continue looping as long as the condition remains true.
+
+The basic syntax of a `while` loop in JavaScript is as follows:
+
+```javascript
+while (condition) {
+    // Code to be executed as long as the condition is true
+}
+```
+
+Here's how a `while` loop works:
+
+1. The `condition` is evaluated before each iteration. If the condition is true, the code inside the loop is executed.
+
+2. After executing the code block, the program returns to the `condition`, and if it is still true, the loop continues to the next iteration. This process repeats until the condition becomes false.
+
+3. When the condition becomes false, the loop terminates, and the program continues with the code after the loop.
+
+Here's an example of a `while` loop that prints numbers from 1 to 5:
+
+```javascript
+let i = 1;
+while (i <= 5) {
+    console.log(i);
+    i++;
+}
+```
+
+In this example, `i` is initially set to 1. The `while` loop checks if `i` is less than or equal to 5. If this condition is true, it prints the value of `i`, increments `i` by 1, and then checks the condition again. This process repeats until `i` is no longer less than or equal to 5.
+
+The loop will produce the following output:
+
+```
+1
+2
+3
+4
+5
+```
+
+While `for` loops are typically used when you know the number of iterations in advance, `while` loops are more suitable when the number of iterations depends on a dynamic condition or when you need to create a loop with more complex exit conditions. Be careful when using `while` loops to avoid infinite loops by ensuring that the condition will eventually become false.
+
+#### do-while loop ?
+
+A "do-while" loop in programming is a control flow structure that is similar to a "while" loop, but with a crucial difference: it guarantees that the code block within the loop will be executed at least once, even if the loop's condition is initially false. 
+
+The basic syntax of a do-while loop in most programming languages, including JavaScript, is as follows:
+
+```javascript
+do {
+    // Code to be executed
+} while (condition);
+```
+
+Here's how a do-while loop works:
+
+1. The code block inside the `do` is executed first, regardless of whether the condition is true or false.
+
+2. After the code block executes, the program checks the `condition` specified in the `while` statement.
+
+3. If the `condition` is true, the loop will continue to execute the code block and then reevaluate the condition. This process repeats until the `condition` becomes false.
+
+4. If the `condition` is initially false, the code block still executes once before checking the condition. If the condition remains false, the loop terminates after the first iteration.
+
+Here's an example of a do-while loop in JavaScript that prompts the user for a number and continues to prompt until the user enters a positive number:
+
+```javascript
+let number;
+do {
+    number = parseFloat(prompt("Enter a positive number:"));
+} while (isNaN(number) || number <= 0);
+console.log("You entered a valid positive number: " + number);
+```
+
+In this example, the code inside the `do` block prompts the user for a number, and the loop will keep executing as long as the user's input is not a positive number. The loop ensures that the user is prompted at least once, even if they enter an invalid value.
+
+The do-while loop is useful in situations where you want to perform a task that must be done at least once, and then continue repeating the task based on a condition. It's less common than the standard `for` or `while` loops but can be valuable in specific scenarios where you need to guarantee an initial execution.
+
+#### what is parseInt and parseFloat ?
+`parseInt` and `parseFloat` are JavaScript functions used for converting strings into numbers. However, they have different use cases and behavior:
+
+1. `parseInt`:
+   - `parseInt` is used to parse a string and convert it into an integer (whole number).
+   - It starts parsing from the beginning of the string and stops when it encounters a non-numeric character or a decimal point.
+   - It also accepts an optional second parameter, the radix, which specifies the base of the number system (e.g., 10 for decimal, 16 for hexadecimal).
+   - It discards any decimal portion of the number.
+   - Example:
+     ```javascript
+     const parsedInt = parseInt("123.45"); // Returns 123
+     ```
+
+2. `parseFloat`:
+   - `parseFloat` is used to parse a string and convert it into a floating-point number (a number that can have a decimal point).
+   - It parses the entire string until it encounters an invalid character or the end of the string.
+   - It retains the decimal portion of the number, allowing for floating-point values.
+   - Example:
+     ```javascript
+     const parsedFloat = parseFloat("123.45"); // Returns 123.45
+     ```
+
+Use Cases:
+- Use `parseInt` when you want to convert a string to an integer, discarding any decimal places.
+- Use `parseFloat` when you want to convert a string to a floating-point number, retaining decimal places if present in the string.
+
+Here's an example demonstrating the difference:
+
+```javascript
+const intResult = parseInt("42.67"); // Result is 42 (decimal portion is truncated)
+const floatResult = parseFloat("42.67"); // Result is 42.67 (decimal portion is retained)
+
+console.log(intResult); // Outputs 42
+console.log(floatResult); // Outputs 42.67
+```
+
+In summary, `parseInt` is for converting strings to integers, and it truncates any decimal portion. `parseFloat` is for converting strings to floating-point numbers, and it retains decimal places if they exist in the string. The choice between them depends on your specific use case and the desired type of conversion.
+
+
+
 
