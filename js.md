@@ -3,9 +3,6 @@
 
 
 
-
-
-
 ## Authors
 
 ### Rohit Sachdeva
@@ -830,6 +827,189 @@ console.log(floatResult); // Outputs 42.67
 ```
 
 In summary, `parseInt` is for converting strings to integers, and it truncates any decimal portion. `parseFloat` is for converting strings to floating-point numbers, and it retains decimal places if they exist in the string. The choice between them depends on your specific use case and the desired type of conversion.
+
+####  what is break and continue statements ?
+
+In JavaScript, "break" and "continue" are control flow statements used within loops to modify the flow of the program's execution:
+
+1. **break**:
+
+   - The "break" statement is used to exit a loop prematurely. When a "break" statement is encountered inside a loop, it terminates the loop, and program control continues with the next statement after the loop.
+   - It is commonly used when you want to exit a loop based on a certain condition being met.
+
+   Example in a "for" loop:
+   ```javascript
+   for (let i = 1; i <= 5; i++) {
+       if (i === 3) {
+           break;  // Exit the loop when i is 3
+       }
+       console.log(i);
+   }
+   ```
+
+2. **continue**:
+
+   - The "continue" statement is used to skip the current iteration of a loop and move to the next iteration. When a "continue" statement is encountered, the rest of the code inside the current iteration is skipped, and the loop continues with the next iteration.
+   - It is often used when you want to skip specific iterations based on a condition without terminating the entire loop.
+
+   Example in a "for" loop:
+   ```javascript
+   for (let i = 1; i <= 5; i++) {
+       if (i % 2 === 0) {
+           continue;  // Skip even numbers
+       }
+       console.log(i);
+   }
+   ```
+
+Both "break" and "continue" are valuable tools for controlling the flow of loops in JavaScript, allowing you to handle specific conditions or requirements within the loop's execution.
+
+#### what will happen if i have outer and inner loop and i use break statement inside the inner loop ?
+
+**Answer:** The "break" statement inside the inner loop will exit only the inner loop. It does not directly affect the outer loop. The outer loop will continue its execution unless a "break" statement is explicitly used within the outer loop as well. If you want to exit both the inner and outer loops when a condition is met, you would need to use a labeled "break" statement, which specifies the loop to break out of. Here's an example:
+
+```javascript
+outerloop:
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        if (i === 2 && j === 2) {
+            break outerloop;  // This breaks out of both loops
+        }
+        console.log(`i=${i}, j=${j}`);
+    }
+}
+```
+
+In this example, the labeled "break" statement "break outerloop;" will exit both the outer and inner loops when `i` is 2 and `j` is 2.
+ ### try this on console.
+
+####  what are arrays ?
+
+Array is a data structure which can store multiple element in index manner and sequential.
+
+we can declare array like :
+
+    eg : let arr = [];
+
+charactersticks of array
+
+    1. Arrays maintain the order of elements, and each element in the array has a unique position or index
+    2. In Other languages , arrays are homogeous which means they only contain same type of data, while in js which is dynamic typed language, it can store the heterogenous data.
+
+    let arr=[1,"a",true];
+        here array contains number, string and boolean value.
+    3. Arrays provide fast and direct access to elements based on their index.
+
+#### How to access elements of an array ?
+
+Array are type of Object. 
+    let arr = [1,2,3,4]
+
+    typeof arr => 'object'
+
+Array declaration => let arr = []
+
+    here variable arr in type of array , which does not have any value.
+
+    lets declare an array with elements 
+
+    let arr =[10,20,30,40,50,60,70,80]
+    
+    as we know arrays are index based which means elements are stored at index starting from zero 
+
+    at index 0 => 10 
+    at index 1 => 20
+    at index 2 => 30
+    at index 3 => 40
+    at index 4 => 50
+    at index 5 => 60
+    at index 6 => 70
+    at index 7 => 80
+    at index 8 => 90
+
+### if we want to access first element which means which have to get the zero index element.
+
+    to get the zero index element we have to do :
+
+        arr[0] => 10
+        arr[1] => 20
+        arr[5] => 60
+    
+
+
+#### how to check length of an array ?  
+
+    we can check length of an array using length property.
+
+    let arr=[1,2,3,4,5,6,7,8,9]
+     arr.length => 9 
+
+#### what is Array constructor ?
+
+    In JavaScript, the `Array` constructor is a built-in constructor function that is used to create and initialize arrays. You can use it to create new arrays, either empty or with initial values. The `Array` constructor can be called in two ways:
+
+1. **Using `new` keyword**:
+
+   You can create an empty array by invoking the `Array` constructor with the `new` keyword. You can also pass a single argument, which specifies the initial length of the array.
+
+   ```javascript
+   const emptyArray = new Array();
+   const arrayWithLength = new Array(3); // Creates an array with a length of 3
+   ```
+
+   Note that when you provide a single numeric argument, it sets the length of the array, but the actual elements are `undefined`.
+
+2. **Using array elements**:
+
+   You can create an array by passing individual values as arguments to the `Array` constructor. These values become the elements of the array.
+
+   ```javascript
+   const fruits = new Array('apple', 'banana', 'cherry');
+   ```
+
+   This is equivalent to creating an array using array literal notation:
+
+   ```javascript
+   const fruits = ['apple', 'banana', 'cherry'];
+   ```
+
+Using array literals is the more common and preferred way to create arrays in JavaScript because it's more concise and readable. The `Array` constructor is rarely used in practice, except for some specific scenarios where you need to create an array with a specified length.
+
+It's important to be aware of potential issues with using the `Array` constructor to create arrays, particularly when dealing with a single numeric argument. In some cases, it might be more intuitive and safer to create arrays using array literals or other array creation methods provided by JavaScript.
+
+#### how to add and remove elements from array ?
+
+    There are 4 different methods to add or delete elements in array .
+
+    1. Push => Adds one or more elements to the end of an array.
+
+    let fruits = ['apple', 'banana'];
+    fruits.push('cherry');
+    // fruits is now ['apple', 'banana', 'cherry']
+
+    we can push more than 1 element 
+
+    fruits?.push('orange','mango')
+    // ['apple','banana','cherry','orange','mango'];
+
+  2. Pop :  Removes the last element from an array.
+
+    let arr= [1,2,3,4]
+    arr.pop() -> returns 4
+
+  3. Unshift: Adds one or more elements to the beginning of an array.
+
+    let fruits = ['banana', 'cherry'];
+    fruits.unshift('apple');
+    // fruits is now ['apple', 'banana', 'cherry']
+
+  4. Shift : Removes the first element from an array.
+
+    let fruits = ['apple', 'banana', 'cherry'];
+    fruits.shift();
+    // fruits is now ['banana', 'cherry']
+
+
 
 
 
