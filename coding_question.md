@@ -1,7 +1,9 @@
 ## Beginner 
 
 
-#### 1.  WAP to print hello world in js ?
+
+
+## 1   WAP to print hello world in js ?
 
     function helloWorld(){
         console.log("Hello World!")
@@ -11,7 +13,7 @@
 
     output => Hello World!
 
-#### 2. WAP to print your name ?
+## 2. WAP to print your name ?
 
     function printName(name){
         console.log("My Name is "+name);
@@ -21,7 +23,7 @@
 
     output => My Name is Alex
 
-#### 3. Get Input from user and print it ?
+## 3. Get Input from user and print it ?
 
     In JavaScript, `prompt` is a built-in function that displays a dialog box with a message and an input field for the user to enter data. It's a way to interact with users and collect information from them in a simple text-based form. The `prompt` function takes two arguments:
 
@@ -52,7 +54,7 @@ In this example, the user is prompted to enter their name. If they enter a name 
 
 It's important to handle the case where the user clicks "Cancel" to prevent unexpected behavior in your JavaScript code, as `null` is returned when the prompt is canceled.
 
-#### 4. Swap 2 numbers ?
+## 4. Swap 2 numbers ?
 
     function swapNumbers(a,b){
 
@@ -64,7 +66,7 @@ It's important to handle the case where the user clicks "Cancel" to prevent unex
     }
 
 
-#### 5. Calculate Farhenhit to calcius ?
+## 5. Calculate Farhenhit to calcius ?
 
 - the formula for converting the temp from faherehnhit to celcius is 
 
@@ -79,11 +81,11 @@ It's important to handle the case where the user clicks "Cancel" to prevent unex
     }
 
 
-#### 6. print Prime numbers from 1 to n ?
+## 6. print Prime numbers from 1 to n ?
 
 Answer
 
-#### 7. Wap to check whether number is positive, negative or zero ?
+## 7. Wap to check whether number is positive, negative or zero ?
 
     function checkNumberEvenOrOdd(no){
 
@@ -95,7 +97,7 @@ Answer
         console.log("number is zero");
     }
 
-### 8. WAP to check Whether Number is Even or Odd?
+## 8. WAP to check Whether Number is Even or Odd?
 
     function checkNumberEvenOrOdd(num){
         if(isNaN(num) || num == 0)
@@ -108,7 +110,7 @@ Answer
     }
 
 
-### 9. Check Whether a Character is Vowel or Consonant ?
+## 9. Check Whether a Character is Vowel or Consonant ?
 
 -  the function will check whether user inputs correct character from a-z or A-Z .
 - after checking check whether the input character is either 
@@ -134,7 +136,7 @@ Answer
          }
 
 
-### 10. WAP to Find Largest Number Among Three Numbers ?
+## 10. WAP to Find Largest Number Among Three Numbers ?
     
 - to find largest among 3 numbers we have to compare 3 numbers with each other 
 - consider 3 numbers to be 10,20,5
@@ -154,48 +156,126 @@ Answer
             }
         }
 
-### 11. WAP to Calculate Sum of Natural Numbers  ?
+## 11. WAP to Calculate Sum of Natural Numbers  ?
+
+    way : 1
+
+        function sumOfNaturalNumbers(n) {
+
+            let sum = 0;
+            for(let i=1;i<n;i++){
+                sum+=i;
+            }
+            console.log(sum);
+        }
+----
+    way : 2
+- sum of n natural numbers can be calculated using n*(n+1)/2
+
+        function sumOfNaturalNumbers(n){
+            let result = (n*(n+1))/2;
+            console.log(result);
+}
+
+
+## 12. Wap to print Alphabets From A to Z  ?
+
+- String.fromCharCode(charCode). - returns the character at the paryicular code.
+
+- unicode charCode of A is 65 and a is 97
+
+        function printAlphabets(){
+
+            for(let i = 'A'.charCodeAt();i<='Z'.charCodeAt();i++){
+                console.log(String.fromCharCode(i))
+            }
+        }
+
+## 13. Check Leap Year?
+
+    To check if a year is a leap year in JavaScript, you can use the following criteria: A leap year is either:
+
+    1. Divisible by 4, but not divisible by 100, or
+    2. Divisible by 400.
+
+Here's a JavaScript function to check if a year is a leap year based on these criteria:
+
+```javascript
+function isLeapYear(year) {
+  // Check if the year is divisible by 4 and not divisible by 100, or divisible by 400
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+// Example usage:
+const yearToCheck = 2024;
+if (isLeapYear(yearToCheck)) {
+  console.log(`${yearToCheck} is a leap year.`);
+} else {
+  console.log(`${yearToCheck} is not a leap year.`);
+}
+```
+
+In this code:
+
+- The `isLeapYear` function takes a `year` as input.
+- It checks two conditions:
+  - The year should be divisible by 4 and not divisible by 100 (`year % 4 === 0 && year % 100 !== 0`).
+  - Alternatively, the year can be divisible by 400 (`year % 400 === 0`).
+- If either of these conditions is met, the function returns `true`, indicating that the year is a leap year. Otherwise, it returns `false`.
+
+You can replace the `yearToCheck` variable with any year you want to check, and the function will determine if it's a leap year.
+
+
+## 14. Find Factorial of a Number?
+- factorial of a number can be calculated by multiplying that number with the subequent descending number like 
+
+    factorial of 5 can be calculated as 
+        5 * 4 * 3 * 2 *1 = 120 
+    
+how can we do this using code ?
+
+- we can subsequent multiply the number with its decrement value like.
+
+        function factorial(num){
+            let fact=1;      // step 1
+            for(let i=num;i>0 ;i--){                
+                fact*=i;
+            }
+            console.log("factorial of number is = ",fact)
+        }
+
+### explanation
+- step 1 :  we took a variable fact and initailize it with default value 1.
+- we iterate the number , but now we did the initialization with the num because we wanted the loop to start from number and should go till 1.
+- fact = fact * i and after each statement i will be decrement by 1.
+
+
+## 15. Make a Simple Calculator 
 
 Answer
 
-### 12. WAp to print Alphabets From A to Z  ?
+## 16. Print Fibonacci Series ?
 
 Answer
 
-### 13. Check Leap Year?
+## 17. Check Armstrong Number ?
 
 Answer
 
-### 14. Find Factorial of a Number?
+## 18. Reverse a Number ?
 
 Answer
 
-### 15. Make a Simple Calculator 
+## 19. Check Whether a Number is a Palindrome or Not ?
 
 Answer
 
-### 16. Print Fibonacci Series ?
-
-Answer
-
-### 17. Check Armstrong Number ?
-
-Answer
-
-### 18. Reverse a Number ?
-
-Answer
-
-### 19. Check Whether a Number is a Palindrome or Not ?
-
-Answer
-
-### 20. Find All Factors of a Natural Number ?
+## 20. Find All Factors of a Natural Number ?
 
 Answer
 
 
-# Intermediate 
+## Intermediate 
 
 ### 1. Display Armstrong Numbers Between 1 to 1000 ?
 
