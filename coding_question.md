@@ -195,7 +195,7 @@ Answer
 Answer
 
 
-## Intermediate 
+# Intermediate 
 
 ### 1. Display Armstrong Numbers Between 1 to 1000 ?
 
