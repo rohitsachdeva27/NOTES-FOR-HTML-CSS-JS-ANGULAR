@@ -900,6 +900,8 @@ charactersticks of array
         here array contains number, string and boolean value.
     3. Arrays provide fast and direct access to elements based on their index.
 
+
+
 #### How to access elements of an array ?
 
 Array are type of Object. 
@@ -936,13 +938,91 @@ Array declaration => let arr = []
         arr[5] => 60
     
 
-
 #### how to check length of an array ?  
 
     we can check length of an array using length property.
 
     let arr=[1,2,3,4,5,6,7,8,9]
      arr.length => 9 
+
+
+### how can we iterate elements of array ?
+
+    const arr= ['john','alex','victor','matte','cintia'];
+
+    Array is index based data structure 
+    just like we can access element at zero index like arr[0] 
+    we can print element using or iterating the index
+
+    the above array has index starting from 
+    0 -> john 
+    1 -> alex 
+    2 -> victor 
+    3 -> matte 
+    4 -> cintia 
+
+    we can iterate through this index using for loop like 
+
+    for(let i=0;i< arr.length;i++){
+        console.log(arr[i]);
+    }
+
+### what is for-of loop ?
+
+The `for...of` loop is a modern iteration construct in JavaScript introduced with ECMAScript 2015 (ES6). It provides a concise and readable way to loop over the values of iterable objects, such as arrays, strings, maps, sets, and more. The `for...of` loop allows you to iterate directly over the values themselves, rather than their indices or keys, making it a convenient choice for many common looping tasks.
+
+Here's the basic syntax of the `for...of` loop:
+
+```javascript
+for (const element of iterable) {
+  // Code to be executed for each element in the iterable
+}
+```
+
+- `element`: This is a variable that represents the current value of the iterable on each iteration.
+- `iterable`: This is the iterable object you want to loop through.
+
+Examples:
+
+1. Looping through an array:
+   ```javascript
+   const fruits = ["apple", "banana", "cherry"];
+   for (const fruit of fruits) {
+     console.log(fruit);
+   }
+   // Output:
+   // "apple"
+   // "banana"
+   // "cherry"
+   ```
+
+2. Looping through a string (treats it as an iterable of characters):
+   ```javascript
+   const text = "Hello";
+   for (const char of text) {
+     console.log(char);
+   }
+   // Output:
+   // "H"
+   // "e"
+   // "l"
+   // "l"
+   // "o"
+   ```
+
+3. Looping through the values of a Set:
+   ```javascript
+   const mySet = new Set([1, 2, 3]);
+   for (const value of mySet) {
+     console.log(value);
+   }
+   // Output:
+   // 1
+   // 2
+   // 3
+   ```
+
+The `for...of` loop is a more concise and often more readable alternative to traditional loops like `for` and `forEach` when you need to iterate over the values of iterable objects. It also works well with the `break` statement to exit the loop or the `continue` statement to skip to the next iteration, just like other loop constructs.
 
 #### what is Array constructor ?
 
