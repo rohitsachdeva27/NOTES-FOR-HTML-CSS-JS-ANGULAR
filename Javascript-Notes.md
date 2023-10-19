@@ -883,7 +883,9 @@ for (let i = 1; i <= 3; i++) {
 In this example, the labeled "break" statement "break outerloop;" will exit both the outer and inner loops when `i` is 2 and `j` is 2.
  ### try this on console.
 
-##  what are arrays ?
+--------------------------------------------------------------------------------------------------------------------------------------------
+# Arrays 
+##  what is an Array ?
 
 Array is a data structure which can store multiple element in index manner and sequential.
 
