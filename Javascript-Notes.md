@@ -883,7 +883,7 @@ for (let i = 1; i <= 3; i++) {
 In this example, the labeled "break" statement "break outerloop;" will exit both the outer and inner loops when `i` is 2 and `j` is 2.
  ### try this on console.
 
-####  what are arrays ?
+##  what are arrays ?
 
 Array is a data structure which can store multiple element in index manner and sequential.
 
@@ -902,7 +902,7 @@ charactersticks of array
 
 
 
-#### How to access elements of an array ?
+## How to access elements of an array ?
 
 Array are type of Object. 
     let arr = [1,2,3,4]
@@ -929,7 +929,7 @@ Array declaration => let arr = []
     at index 7 => 80
     at index 8 => 90
 
-### if we want to access first element which means which have to get the zero index element.
+## if we want to access first element which means which have to get the zero index element.
 
     to get the zero index element we have to do :
 
@@ -938,7 +938,7 @@ Array declaration => let arr = []
         arr[5] => 60
     
 
-#### how to check length of an array ?  
+## how to check length of an array ?  
 
     we can check length of an array using length property.
 
@@ -946,7 +946,7 @@ Array declaration => let arr = []
      arr.length => 9 
 
 
-### how can we iterate elements of array ?
+## how can we iterate elements of array ?
 
     const arr= ['john','alex','victor','matte','cintia'];
 
@@ -967,7 +967,7 @@ Array declaration => let arr = []
         console.log(arr[i]);
     }
 
-### what is for-of loop ?
+## what is for-of loop ?
 
 The `for...of` loop is a modern iteration construct in JavaScript introduced with ECMAScript 2015 (ES6). It provides a concise and readable way to loop over the values of iterable objects, such as arrays, strings, maps, sets, and more. The `for...of` loop allows you to iterate directly over the values themselves, rather than their indices or keys, making it a convenient choice for many common looping tasks.
 
@@ -1024,7 +1024,7 @@ Examples:
 
 The `for...of` loop is a more concise and often more readable alternative to traditional loops like `for` and `forEach` when you need to iterate over the values of iterable objects. It also works well with the `break` statement to exit the loop or the `continue` statement to skip to the next iteration, just like other loop constructs.
 
-#### what is Array constructor ?
+### what is Array constructor ?
 
     In JavaScript, the `Array` constructor is a built-in constructor function that is used to create and initialize arrays. You can use it to create new arrays, either empty or with initial values. The `Array` constructor can be called in two ways:
 
@@ -1057,7 +1057,7 @@ Using array literals is the more common and preferred way to create arrays in Ja
 
 It's important to be aware of potential issues with using the `Array` constructor to create arrays, particularly when dealing with a single numeric argument. In some cases, it might be more intuitive and safer to create arrays using array literals or other array creation methods provided by JavaScript.
 
-#### how to add and remove elements from array ?
+## how to add and remove elements from array ?
 
     There are 4 different methods to add or delete elements in array .
 
@@ -1090,7 +1090,7 @@ It's important to be aware of potential issues with using the `Array` constructo
     // fruits is now ['banana', 'cherry']
 
 
-#### What are methods that are applicable on arrays ?
+## What are methods that are applicable on arrays ?
 
 ### 1. At 
     The at() method of Array instances takes an integer value and returns the item at that index.
