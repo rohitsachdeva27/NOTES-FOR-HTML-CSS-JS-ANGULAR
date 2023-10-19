@@ -1,7 +1,7 @@
 ## Beginner 
 
 
-####  WAP to print hello world in js ?
+#### 1.  WAP to print hello world in js ?
 
     function helloWorld(){
         console.log("Hello World!")
@@ -11,7 +11,7 @@
 
     output => Hello World!
 
-#### WAP to print your name ?
+#### 2. WAP to print your name ?
 
     function printName(name){
         console.log("My Name is "+name);
