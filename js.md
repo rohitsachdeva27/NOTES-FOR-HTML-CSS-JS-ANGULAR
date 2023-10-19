@@ -1090,6 +1090,242 @@ It's important to be aware of potential issues with using the `Array` constructo
     // fruits is now ['banana', 'cherry']
 
 
+#### What are methods that are applicable on arrays ?
+
+### 1. At 
+    The at() method of Array instances takes an integer value and returns the item at that index.
+
+    const array1 = [5, 12, 8, 130, 44];
+
+    let index = 2;
+
+    array1.at(2) => 8 
+
+    array1.at(-1) => 44 
+
+    ** negative index count from back.
+
+### 2. Concat 
+    The concat() method of Array instances is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+    const array1 = ['a', 'b', 'c'];
+    const array2 = ['d', 'e', 'f'];
+    const array3 = array1.concat(array2);
+
+    console.log(array3);
+
+    output =>  ["a", "b", "c", "d", "e", "f"]
+
+    arr.concat(elements)
+        the elements can be 
+            a) array 
+            b) multiple values (10,20,30);
+
+    arr.concat(10,20,30,40);
+
+### 3. isArray 
+    The Array.isArray() static method determines whether the passed value is an Array.
+
+    Array.isArray() checks if the passed value is an Array. It does not check the value's prototype chain, nor does it rely on the Array constructor it is attached to. It returns true for any value that was created using the array literal syntax or the Array constructor.
+
+    Array.isArray(1) => false
+    Array.isArray([]) => true
+
+### 4. Fill 
+
+    The fill() method of Array instances changes all elements within a range of indices in an array to a static value. It returns the modified array.
+
+    syntax :
+        fill(number to be filled,start_index,end_index);
+
+    const array1 = [1, 2, 3, 4];
+
+    // Fill with 0 from position 2 until position 4
+    console.log(array1.fill(0, 2, 4));
+
+### 5. filter 
+
+    filter method is used to filter elements from the array and it gives the shallow copy of the array.
+
+    eg : let evenNumbers = [1,2,3,4,5,6,7,8,9,10];
+        here we are having an array of 10 natural numbers, if we want to filter only the even numbers we have to do the following steps: 
+
+        a) iterate each and every element of array and check whether element is even or odd.
+        b) take a new bucket or a new array and place even numbers in new bucket .
+
+    
+### eg with loop method : 
+
+    function filterEvenNumberWithoutFilterMethod(arr){
+
+        let evenNumbers =[];
+
+        for(let i=0;i< arr.length;i++){
+            if(arr[i] %2 !==0 ) continue;
+            evenNumbers.push(arr[i])
+        }
+    }
+
+### explanation : 
+
+ -   let evenNumbers =[];
+        taking a new bucket to store all even numbers.
+-  iterating elements from 0 to length and checking if element at index is modulus by 2 is not equal zero (means odd number ) should be igore and loop should continue
+- when number is even it should be pushed in new array.
+
+
+### 6. slice 
+    Array slice method is used to return the shallow copy of array elements.
+
+     syntax : array.slice(start,end)
+ - where start and end represent the index of items in that array. The original array will not be modified.
+
+ - end index is optional, if end index is not provided the slice will return all the elements starting from startIndex till the last element.
+
+ - if end index is present, end index will always be considered -1.
+    slice(0,3)
+    it will give the elements starting from 0 index till the 2 index.
+
+
+        eg : const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+        - animals.slice(1)
+        // will give elements starting from 2 till the last index
+        output => ['camel', 'duck', 'elephant'];
+    
+        - animals.slice(0,2)
+        // will give elements starting from 0 to 1
+        output => ['ant','bison']
+
+        -- animals.slice(-2)
+        // negatve index will start from last 
+        -2 means starting from second last index which is duck and goes till last.
+
+        output => ['duck','elephant']
+
+####  slice creates a new array without modifying the existing array.
+
+### 7. Array.from 
+
+The `Array.from()` method is a static method available in JavaScript for creating a new array from an iterable object or an array-like object. It allows you to convert other data structures, such as strings, sets, maps, and objects with iterable properties, into an array.
+
+Here's the basic syntax of `Array.from()`:
+
+```javascript
+Array.from(iterable[, mapFn[, thisArg]])
+```
+
+- `iterable`: The source iterable or array-like object to convert into an array.
+- `mapFn` (optional): A mapping function to apply to each element in the iterable. It is called for each element in the iterable, and the returned value becomes the corresponding element in the new array.
+- `thisArg` (optional): An optional value to use as `this` when executing the mapping function.
+
+Examples:
+
+1. **Converting a String to an Array**:
+
+   You can use `Array.from()` to convert a string into an array of its characters.
+
+   ```javascript
+   const str = 'Hello';
+   const charArray = Array.from(str);
+
+   console.log(charArray);
+   // Output: ['H', 'e', 'l', 'l', 'o']
+   ```
+
+2. **Converting a Set to an Array**:
+
+   You can convert a `Set` into an array.
+
+   ```javascript
+   const mySet = new Set([1, 2, 3]);
+   const setArray = Array.from(mySet);
+
+   console.log(setArray);
+   // Output: [1, 2, 3]
+   ```
+
+3. **Using a Mapping Function**:
+
+   You can provide a mapping function to modify the elements as you convert them.
+
+   ```javascript
+   const numbers = [1, 2, 3, 4, 5];
+   const squaredNumbers = Array.from(numbers, x => x * x);
+
+   console.log(squaredNumbers);
+   // Output: [1, 4, 9, 16, 25]
+   ```
+
+4. **Using an Array-Like Object**:
+
+   `Array.from()` can be used to convert an array-like object (e.g., the `arguments` object) into an array.
+
+   ```javascript
+   function exampleFunction() {
+     return Array.from(arguments);
+   }
+
+   const argsArray = exampleFunction(1, 2, 3);
+
+   console.log(argsArray);
+   // Output: [1, 2, 3]
+   ```
+### 5.  Using MapFunc
+
+    Array.from("hello",(ele)=>ele.toUpperCase());
+
+
+`Array.from()` is a versatile method that simplifies the process of converting iterable or array-like data into arrays, which can be particularly useful when working with different types of data in JavaScript.
+
+
+## 8. indexOf 
+- The indexOf() method of Array instances returns the first index at which a given element can be found in the array, or -1 if it is not present. 
+
+        syntax : 
+
+        indexOf(searchElement)
+        indexOf(searchElement, fromIndex)
+
+
+        const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+        console.log(beasts.indexOf('bison'));
+        // Expected output: 1
+
+        // Start from index 2
+        console.log(beasts.indexOf('bison', 2));
+        // Expected output: 4
+
+        console.log(beasts.indexOf('giraffe'));
+        // Expected output: -1
+
+
+        ---- 
+        eg : 2
+
+        const array = [2, 9, 9];
+        array.indexOf(2); // 0
+        array.indexOf(7); // -1
+        array.indexOf(9, 2); // 2
+        array.indexOf(2, -1); // -1
+        array.indexOf(2, -3); // 0
+
+## 9. lastIndexOf
+
+- The lastIndexOf() method of Array instances returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.
+
+        const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
+
+        console.log(animals.lastIndexOf('Dodo'));
+        // Expected output: 3
+
+        console.log(animals.lastIndexOf('Tiger'));
+        // Expected output: 1
+
+## 10. reverse
+
+The reverse() method of Array instances reverses an array in place and returns the reference to the same array, the first array element now becoming the last, and the last array element becoming the first. In other words, elements order in the array will be turned towards the direction opposite to that previously stated.
 
 
 
