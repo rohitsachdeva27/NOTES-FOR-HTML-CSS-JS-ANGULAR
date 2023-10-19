@@ -252,7 +252,45 @@ how can we do this using code ?
 
 ## 15. Make a Simple Calculator 
 
-Answer
+- to make a calculator our function shpuld be able to perform all the mathemaical function.
+
+        function calculator(){
+
+        let no1 = +prompt("enter number 1");
+        let no2 = +prompt("enter number 2");
+        let operation = prompt("enter operation from (+,-,/,%,*)");
+        let result;
+
+        switch(operation){
+
+            case '+':
+                result = no1+no2;
+                alert(result);
+                break;
+                
+            case '-':
+                result = no1-no2;
+                alert(result);
+                break;
+                
+            case '/':
+                result = no1/no2;
+                alert(result);
+                break;
+                
+            case '*':
+                result = no1*no2;
+                alert(result);
+                break;
+
+            case '%':
+                result = no1%no2;
+                alert(result);
+                break;        
+
+        }
+    }
+
 
 ## 16. Print Fibonacci Series ?
 
