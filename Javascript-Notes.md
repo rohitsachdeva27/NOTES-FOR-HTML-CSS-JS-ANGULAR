@@ -1329,6 +1329,111 @@ Examples:
 
 The reverse() method of Array instances reverses an array in place and returns the reference to the same array, the first array element now becoming the last, and the last array element becoming the first. In other words, elements order in the array will be turned towards the direction opposite to that previously stated.
 
+## what are arrow functions ?
+Arrow functions in JavaScript are a more concise way to write functions. They were introduced in ECMAScript 6 (ES6) and provide a shorter syntax for defining functions compared to conventional function expressions.
+
+Here's a basic example of an arrow function:
+
+```javascript
+const add = (a, b) => a + b;
+```
+
+And here's how you would write the same function using a conventional function expression:
+
+```javascript
+const add = function(a, b) {
+  return a + b;
+};
+```
+
+Here are some key differences between arrow functions and conventional functions:
+
+1. Syntax:
+   - Arrow functions have a shorter syntax, especially when the function has only one expression. They don't require the `function` keyword or the use of curly braces `{}` if there's only one statement.
+
+2. `this` binding:
+   - Arrow functions do not have their own `this` context. They inherit the `this` value from the surrounding code. This makes them particularly useful when defining functions as callbacks or within methods, where the context of `this` can be different in a conventional function.
+
+3. No arguments object:
+   - Arrow functions do not have their own `arguments` object. In conventional functions, you can access the `arguments` object to get all the passed arguments, but arrow functions do not have this feature.
+
+4. Cannot be used as constructors:
+   - You cannot use arrow functions with the `new` keyword to create instances of objects. Conventional functions can be used as constructors to create new objects.
+
+5. Use cases:
+   - Arrow functions are often preferred for short, simple functions, like mapping an array or defining callbacks in functions like `Array.prototype.map()`, `Array.prototype.filter()`, and `setTimeout()`. Conventional functions are still used for more complex or larger functions.
+
+6. Readability:
+   - Arrow functions can make the code more concise, but they may sacrifice some readability for those who are not familiar with this syntax. Some developers prefer conventional functions for clarity in certain situations.
+
+It's essential to choose between arrow functions and conventional functions based on the specific use case and your coding style. Both have their advantages and disadvantages, and understanding their differences will help you use them effectively in your JavaScript code.
+
+    eg :
+    
+    () => expression
+
+    param => expression
+
+    (param) => expression
+
+    (param1, paramN) => expression
+
+    () => {
+    statements
+    }
+
+    param => {
+    statements
+    }
+
+    (param1, paramN) => {
+    statements
+    }
 
 
+## how can we convert normal function to arrow function ?
+
+lets consider normal function be of greet 
+
+    function greet(){
+
+        console.log("Hello World")
+    }
+
+Steps to convert this into arrow function:
+
+    1. remove the function keyword.
+
+        greet(){
+            console.log("Hello World")
+        }
+    2. give the arrow between the paranthesis and curly braces.
+
+    greet =  ()=>{}
+
+
+## what are callback functions ?
+
+    we have seen passing primitive types like integers and strings to function, but we can also pass function as a parameter to another function.
+
+- A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+
+        eg: we can pass function as a parameter 
+
+        function success(){
+            console.log("success")
+        }
+
+        function add(a,b,callback){
+            console.log(a+b);
+            callback();
+        }
+
+## why do we need callback functions ?
+
+- JavaScript runs code sequentially in top-down order. However, there are some cases that code runs (or must run) after something else happens and also not sequentially. This is called asynchronous programming.
+
+- Callbacks make sure that a function is not going to run before a task is completed but will run right after the task has completed. It helps us develop asynchronous JavaScript code and keeps us safe from problems and errors.
+
+- In JavaScript, the way to create a callback function is to pass it as a parameter to another function, and then to call it back right after something has happened or some task is completed
 
