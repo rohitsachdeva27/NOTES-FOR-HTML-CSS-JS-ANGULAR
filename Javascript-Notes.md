@@ -1435,5 +1435,321 @@ Steps to convert this into arrow function:
 
 - Callbacks make sure that a function is not going to run before a task is completed but will run right after the task has completed. It helps us develop asynchronous JavaScript code and keeps us safe from problems and errors.
 
-- In JavaScript, the way to create a callback function is to pass it as a parameter to another function, and then to call it back right after something has happened or some task is completed
+- In JavaScript, the way to create a callback function is to pass it as a parameter to another function, and then to call it back right after something has happened or some task is completed.
+
+
+#### what is setTimeout function ?
+
+The `setTimeout` function in JavaScript is used to schedule the execution of a function (or the evaluation of a piece of code) after a specified delay in milliseconds. It allows you to introduce a delay in your code, making it useful for various purposes, such as executing code after a certain time interval, creating animations, handling timeouts, or simulating asynchronous behavior.
+
+Here's the basic syntax of the `setTimeout` function:
+
+```javascript
+setTimeout(function, delay);
+```
+
+- `function`: This is the function or code snippet you want to execute after the specified delay.
+
+- `delay`: This is the amount of time, in milliseconds, by which you want to delay the execution of the function.
+
+Here's an example of how you can use `setTimeout` to schedule a function to run after a 2-second delay:
+
+```javascript
+function sayHello() {
+  console.log("Hello, world!");
+}
+
+setTimeout(sayHello, 2000); // Executes sayHello after a 2-second delay (2000 milliseconds)
+```
+
+You can also use an arrow function or an inline function directly within `setTimeout`, like this:
+
+```javascript
+setTimeout(() => {
+  console.log("This is an anonymous function.");
+}, 1000);
+```
+
+It's important to note that `setTimeout` doesn't pause the execution of the rest of your code. It schedules the specified function to run in the future and continues executing the code that follows it. If you need to wait for the `setTimeout` to complete before proceeding, you should use callbacks or Promises to handle the asynchronous behavior.
+
+Here's an example of using `setTimeout` to create a simple delay:
+
+```javascript
+console.log("Start");
+setTimeout(function() {
+  console.log("This message appears after a delay.");
+}, 2000);
+console.log("End");
+```
+
+In this example, "Start" and "End" will be displayed immediately, while the message within `setTimeout` will be displayed after a 2-second delay.
+
+`setTimeout` is a fundamental part of asynchronous JavaScript and is often used for handling animations, creating timed actions, and managing non-blocking code execution.
+
+
+## what is setInterval ?
+
+The `setInterval` function in JavaScript is used to repeatedly execute a given function or code snippet at a specified time interval. It is similar to `setTimeout`, which schedules a function to run after a specified delay, but `setInterval` is designed to execute a function repeatedly with a fixed time gap between each execution.
+
+Here's the basic syntax of the `setInterval` function:
+
+```javascript
+setInterval(function, delay);
+```
+
+- `function`: This is the function or code snippet you want to execute at regular intervals.
+
+- `delay`: This is the time interval, in milliseconds, between each execution of the function.
+
+Here's an example of how you can use `setInterval` to repeatedly execute a function every 2 seconds:
+
+```javascript
+function logMessage() {
+  console.log("This message repeats every 2 seconds.");
+}
+
+setInterval(logMessage, 2000); // Executes logMessage every 2 seconds (2000 milliseconds)
+```
+
+You can also use an arrow function or an inline function directly within `setInterval`, like this:
+
+```javascript
+setInterval(() => {
+  console.log("This is an anonymous function that repeats.");
+}, 1000);
+```
+
+It's important to note that `setInterval` will continue to execute the specified function indefinitely at the specified time interval until you explicitly clear it using `clearInterval`. To stop the execution of a repeating function, you would use `clearInterval` and provide it with the interval ID returned by `setInterval`.
+
+Here's an example of how to use `clearInterval` to stop a repeating function:
+
+```javascript
+function logMessage() {
+  console.log("This message repeats every 2 seconds.");
+}
+
+const intervalId = setInterval(logMessage, 2000);
+
+// To stop the repeating function after a certain number of executions (e.g., 5 times):
+let counter = 0;
+const maxExecutions = 5;
+if (counter === maxExecutions) {
+  clearInterval(intervalId); // This stops the interval.
+}
+```
+
+`setInterval` is commonly used for tasks that need to be performed at regular intervals, such as updating real-time data, creating animations, or periodically checking for new data from a server. It's an essential part of handling time-based events in JavaScript.
+
+## what is filter, map and find, forEach, every and some, findFirst, findLast methods in js ?
+
+- # filter : 
+In JavaScript, the `filter` method is a built-in array method that is used to create a new array containing elements from the original array that meet a specified condition. The `filter` method does not modify the original array; instead, ` it returns a new array with the elements that satisfy the provided condition.`
+
+Here is the basic syntax of the `filter` method:
+
+```javascript
+const newArray = array.filter(callback(element, index, array));
+```
+
+- `array`: The original array that you want to filter.
+- `callback`: A function that is called for each element in the array. This function should return `true` for elements that should be included in the filtered array and `false` for elements that should be excluded.
+  - `element`: The current element being processed in the array.
+  - `index` (optional): The index of the current element being processed.
+  - `array` (optional): The array that `filter` was called upon.
+
+Here's an example of using the `filter` method to filter even numbers from an array:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const evenNumbers = numbers.filter(function (number) {
+  return number % 2 === 0;
+});
+
+console.log(evenNumbers); // Output: [2, 4, 6, 8]
+```
+
+You can also use arrow functions for conciseness:
+
+```javascript
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+```
+
+The `filter` method is a powerful tool for selecting elements from an array based on various criteria, and it is commonly used for tasks such as data filtering, searching, or creating a subset of data that meets specific conditions.
+
+- ## Map
+    In JavaScript, the `map` method is a built-in function for arrays that allows you to create a new array by applying a given function to each element of an existing array. It takes an input array, processes each element, and returns a new array containing the results of the function applied to each element.
+
+Here's the basic syntax of the `map` method:
+
+```javascript
+const newArray = array.map(callback(currentValue, index, array));
+```
+
+- `array`: The original array on which you want to apply the `map` operation.
+- `callback`: A function that is executed for each element in the array.
+  - `currentValue`: The current element being processed.
+  - `index` (optional): The index of the current element being processed.
+  - `array` (optional): The array on which `map` was called.
+
+Here's an example of using the `map` method to double each element in an array:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const doubledNumbers = numbers.map(function (number) {
+  return number * 2;
+});
+
+console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+```
+
+You can also use arrow functions for brevity:
+
+```javascript
+const doubledNumbers = numbers.map(number => number * 2);
+```
+
+The `map` method is particularly useful for transforming data in an array. It creates a new array with the same length as the original one, where each element is the result of applying the provided function to the corresponding element in the input array. It does not modify the original array; it returns a new one, making it non-destructive.
+
+Common use cases for the `map` method include data transformation, such as formatting or extracting specific information from an array of objects, or creating a new array based on some transformation of the elements in the original array.
+
+- ## Every 
+#### The every() method of Array instances tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+
+
+    const isBelowThreshold = (currentValue) => currentValue < 40;
+
+    const array1 = [1, 30, 39, 29, 10, 13];
+
+    console.log(array1.every(isBelowThreshold));
+
+    // Expected output: true (as all elements are less than 40).
+
+
+- it iterates for all elements in the array untill elements return false.
+
+- ## some
+
+In JavaScript, the `some` method is a built-in function for arrays that is used to determine if at least one element in the array meets a specified condition. The `some` method returns `true` if the condition is met by at least one element in the array and `false` if no elements satisfy the condition.
+
+Here's the basic syntax of the `some` method:
+
+```javascript
+const result = array.some(callback(element, index, array));
+```
+
+- `array`: The array you want to test.
+- `callback`: A function that is used to test each element in the array.
+  - `element`: The current element being tested.
+  - `index` (optional): The index of the current element.
+  - `array` (optional): The array on which the `some` method was called.
+
+Here's an example of using the `some` method to check if an array contains any even numbers:
+
+```javascript
+const numbers = [1, 3, 5, 2, 7, 9];
+const hasEvenNumber = numbers.some(function (number) {
+  return number % 2 === 0;
+});
+
+console.log(hasEvenNumber); // Output: true (because 2 is an even number)
+```
+
+You can also use arrow functions for brevity:
+
+```javascript
+const hasEvenNumber = numbers.some(number => number % 2 === 0);
+```
+
+The `some` method is often used to quickly check if an array contains elements that satisfy a certain condition. It's particularly useful when you want to determine whether at least one item in the array meets a specific requirement without needing to process all the elements in the array.
+
+If you need to check whether all elements in the array satisfy a condition, you can use the `every` method, which returns `true` only if all elements meet the condition.
+
+
+- ## find
+   #### The find() method of Array instances returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+
+        const array1 = [5, 12, 8, 130, 44];
+
+        const found = array1.find((element) => element > 10);
+
+        console.log(found);
+        // Expected output: 12
+
+  -  ### The find method is especially handy when you want to locate a single element in an array that meets a specific condition. It stops as soon as the condition is satisfied, so it doesn't continue searching for more elements that might satisfy the condition.
+
+  - ### If you need to find all elements that meet a particular condition and not just the first one, you can use the filter method, which returns an array of all matching elements.
+
+
+- ## findIndex()
+
+#### The findIndex() method of Array instances returns the index of the `first element` in an array that satisfies the provided testing function. If no elements satisfy the testing function, -1 is returned.
+
+
+    const array1 = [5, 12, 8, 130, 44];
+
+    const isLargeNumber = (element) => element > 13;
+
+    console.log(array1.findIndex(isLargeNumber));
+    // Expected output: 3
+
+
+- ## findLast 
+
+#### The findLast() method of Array instances iterates the array in reverse order and returns the value of the first element that satisfies the provided testing function. If no elements satisfy the testing function, undefined is returned.
+
+
+    const array1 = [5, 12, 50, 130, 44];
+
+    const found = array1.findLast((element) => element > 45);
+
+    console.log(found);
+    // Expected output: 130
+
+
+- ## ForEach 
+
+        The forEach() method of Array instances executes a provided function once for each array element.
+
+
+### syntax 
+
+    forEach(callbackFn)
+
+- There is no way to stop or break a forEach() loop other than by throwing an exception. If you need such behavior, the forEach() method is the wrong tool.
+
+
+## Includes
+
+
+- ### The includes() method of Array instances determines whether an array includes a certain value among its entries, returning true or false as appropriate
+
+        const array1 = [1, 2, 3];
+
+        console.log(array1.includes(2));
+        // Expected output: true
+
+        const pets = ['cat', 'dog', 'bat'];
+
+        console.log(pets.includes('cat'));
+        // Expected output: true
+
+        console.log(pets.includes('at'));
+        // Expected output: false
+
+    syntax : 
+            
+            includes(searchElement)
+            includes(searchElement, fromIndex)
+
+
+
+Note :
+
+        the first element that matches, use find().
+        the index of the last matching element in the array, use findLastIndex().
+        the index of a value, use indexOf(). (It's similar to findIndex(), but checks each element for equality with the value instead of using a testing function.)
+        whether a value exists in an array, use includes(). Again, it checks each element for equality with the value instead of using a testing function.
+        if any element satisfies the provided testing function, use some().
+
+
 
