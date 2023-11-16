@@ -1,3 +1,6 @@
+
+## FAQ
+
 ## what is return value of function ?
 Return values are just what they sound like — the values that a function returns when it completes.Some functions don't return a significant value, but others do.
 
@@ -499,6 +502,91 @@ These descriptors are powerful tools for defining and controlling the behavior o
 In summary, the key difference is that `Object.seal()` allows modifications to the values of existing properties and doesn't make the properties non-configurable, while `Object.freeze()` makes the object and its properties fully immutable, preventing any changes. The choice between them depends on the level of immutability you need for your specific use case.
 
 
+## what is Object destructuring ?
+Object destructuring is a feature in JavaScript that allows you to extract values from objects and bind them to variables in a more concise and convenient way. It provides an elegant method for extracting properties from objects and using them in your code. Object destructuring is commonly used in a variety of JavaScript scenarios, such as when working with function parameters or extracting data from complex objects.
+
+Here's the basic syntax of object destructuring:
+
+```javascript
+const { property1, property2, ... } = sourceObject;
+```
+
+- `property1`, `property2`, etc., are the names of the properties you want to extract from `sourceObject`.
+- `sourceObject` is the object from which you are extracting the properties.
+
+Here's an example:
+
+```javascript
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+};
+
+const { firstName, lastName } = person;
+
+console.log(firstName); // "John"
+console.log(lastName);  // "Doe"
+```
+
+In this example, object destructuring is used to extract the `firstName` and `lastName` properties from the `person` object and bind them to variables.
+
+Object destructuring is not limited to extracting single properties; you can also destructure nested objects and provide default values for properties that may not exist. It makes your code more concise and easier to read, especially when working with complex data structures.
+
+Here's an example of destructuring nested objects and providing default values:
+
+```javascript
+const user = {
+  name: "Alice",
+  address: {
+    city: "New York",
+    zipCode: "10001",
+  },
+};
+
+const { name, address: { city, country = "USA" } } = user;
+
+console.log(name);    // "Alice"
+console.log(city);    // "New York"
+console.log(country); // "USA"
+```
+
+Object destructuring is a powerful and widely used feature in modern JavaScript, and it simplifies working with objects and their properties.
+
+### MORE Use cases
+
+      const [a, b] = array;
+      const [a, , b] = array;
+      const [a = aDefault, b] = array;
+      const [a, b, ...rest] = array;
+      const [a, , b, ...rest] = array;
+      const [a, b, ...{ pop, push }] = array;
+      const [a, b, ...[c, d]] = array;
+
+      const { a, b } = obj;
+      const { a: a1, b: b1 } = obj;
+      const { a: a1 = aDefault, b = bDefault } = obj;
+      const { a, b, ...rest } = obj;
+      const { a: a1, b: b1, ...rest } = obj;
+      const { [key]: a } = obj;
+
+      let a, b, a1, b1, c, d, rest, pop, push;
+      [a, b] = array;
+      [a, , b] = array;
+      [a = aDefault, b] = array;
+      [a, b, ...rest] = array;
+      [a, , b, ...rest] = array;
+      [a, b, ...{ pop, push }] = array;
+      [a, b, ...[c, d]] = array;
+
+      ({ a, b } = obj); // parentheses are required
+      ({ a: a1, b: b1 } = obj);
+      ({ a: a1 = aDefault, b = bDefault } = obj);
+      ({ a, b, ...rest } = obj);
+      ({ a: a1, b: b1, ...rest } = obj);
+
+
+
 ## how can we iterate the object ?
 
 You can iterate over the properties of an object in JavaScript using various methods. Here are some common ways to iterate through the properties of an object:
@@ -798,3 +886,356 @@ Here are some key points about the `document` object:
    - The `document` object serves as an interface for scripting languages like JavaScript to dynamically manipulate the document. It enables developers to create interactive and dynamic web pages.
 
 In summary, the `document` object is a central and crucial part of the DOM, providing a programming interface for interacting with the content and structure of a web document. While it's a key component of the DOM, it is distinct from the HTML document itself; it's a dynamic representation created by the browser for scripting languages to work with.
+
+## what is a DOM tree ?
+
+Using the Document Object Model
+The Document Object Model (DOM) is an API for manipulating DOM trees of HTML and XML documents (among other tree-like documents). This API is at the root of the description of a page and serves as a base for scripting on the web.
+
+What is a DOM tree?
+A DOM tree is a tree structure whose nodes represent an HTML or XML document's contents. Each HTML or XML document has a DOM tree representation. For example, consider the following document:
+
+HTML
+Copy to Clipboard
+
+      <html lang="en">
+      <head>
+         <title>My Document</title>
+      </head>
+      <body>
+         <h1>Header</h1>
+         <p>Paragraph</p>
+      </body>
+      </html>
+
+The DOM as a tree-like representation of a document that has a root and node elements containing content
+Although the above tree is similar to the above document's DOM tree, it's not identical, as the actual DOM tree preserves whitespace.
+
+When a web browser parses an HTML document, it builds a DOM tree and then uses it to display the document.
+
+## what does DOM api do ?
+
+- The Document API, also sometimes called the DOM API, allows you to modify a DOM tree in any way you want. It enables you to create any HTML or XML document from scratch or to change any contents of a given HTML or XML document. Web page authors can edit the DOM of a document using JavaScript to access the document property of the global object. This document object implements the Document interface.
+
+## what are the different different interface method provided by DOM ?
+
+The `Document` interface in the DOM (Document Object Model) provides various methods for interacting with and manipulating the content, structure, and style of an HTML or XML document. Here are some of the commonly used methods:
+
+### Document Retrieval Methods:
+
+1. **`getElementById(id: string): Element | null`**
+   - Returns the element with the specified ID or `null` if not found.
+
+2. **`getElementsByClassName(className: string): HTMLCollectionOf<Element>`**
+   - Returns a live `HTMLCollection` of elements with the specified class name.
+
+3. **`getElementsByTagName(tagName: string): HTMLCollectionOf<Element>`**
+   - Returns a live `HTMLCollection` of elements with the specified tag name.
+
+4. **`getElementsByName(name: string): NodeListOf<HTMLElement>`**
+   - Returns a non-live `NodeList` of elements with the specified name attribute.
+
+5. **`querySelector(selectors: string): Element | null`**
+   - Returns the first element that matches the specified CSS selectors or `null` if not found. It is generally used for querying the elements directly using tag, class,id.
+
+6. **`querySelectorAll(selectors: string): NodeList`**
+   - Returns a static `NodeList` of all elements that match the specified CSS selectors.
+
+### Document Creation and Modification Methods:
+
+7. **`createElement(tagName: string): Element`**
+   - Creates a new HTML element with the specified tag name.
+
+8. **`createTextNode(data: string): Text`**
+   - Creates a new text node with the specified content.
+
+9. **`appendChild(newChild: Node): Node`**
+   - Adds a new child node to the end of the list of children of a specified parent node.
+
+10. **`removeChild(oldChild: Node): Node`**
+    - Removes a child node from the DOM.
+
+11. **`replaceChild(newChild: Node, oldChild: Node): Node`**
+    - Replaces one child node with another.
+
+### Document Information and Navigation Methods:
+
+12. **`getElementById(id: string): Element | null`**
+    - Returns the element with the specified ID or `null` if not found.
+
+13. **`getElementsByTagName(tagName: string): HTMLCollectionOf<Element>`**
+    - Returns a live `HTMLCollection` of elements with the specified tag name.
+
+14. **`createElement(tagName: string): Element`**
+    - Creates a new HTML element with the specified tag name.
+
+15. **`createDocumentFragment(): DocumentFragment`**
+    - Creates an empty `DocumentFragment` node that can be used as a temporary container.
+
+16. **`createEvent(eventInterface: string): Event`**
+    - Creates a new event of the specified type.
+
+### Document Loading and Scripting Methods:
+
+17. **`open(): void`**
+    - Opens a new document for writing.
+
+18. **`close(): void`**
+    - Closes the document for writing.
+
+19. **`write(...text: string[]): void`**
+    - Writes HTML expressions or JavaScript code to a document.
+
+20. **`writeln(...text: string[]): void`**
+    - Writes HTML expressions or JavaScript code to a document, followed by a newline character.
+
+These are just a few examples of the methods provided by the `Document` interface. The actual set of methods can vary depending on the DOM specification and the version of the browser. It's recommended to refer to the official documentation or use browser developer tools for more comprehensive information and examples.
+
+## what are the properties which can be updated using the element ref from document interface ?
+
+consider an element 
+
+      <h1 id="heading" class="h1">Welcome to the Js </h1>
+
+1. **we can change the textContent**
+
+- to change the text content of the h1 element we need the element reference , which we can get using **getElementById** or **querySelector** or **getElementsByClassName**.
+
+      let element =  document.getElementsByClassName("heading");
+      // to access or change the textcontent we have to get the textContent property of element 
+      element.textContent = "Text Changed";
+
+2. **innerHTML Property**
+
+when we render content using textContent it is simple text format, but when we want the content to be changed and text contains html tags then we should use innerHTML.
+
+      element.innerHTML = "<i>Welcome</i>"
+
+now content will be welcome in italic.
+
+3. **we can add or remove Styles**
+
+         element.style.color = "red";
+
+4. **we can add classes**
+
+         element.classList.add('heading1')
+
+5. **remove classes**
+
+         element.classList.remove('heading1')
+
+6. **lets say we have a anchor tag and we want to dynamically update its href**
+
+- ### we can add attributes like src/href.
+         
+         <a href="" id="link">Click to Navigate</a>
+         let anchortag = document.getElementById("link");
+         anchorTag.href="https.google.com";
+
+
+## what are different events in js ?
+
+Events are things that happen in the system you are programming — the system produces (or "fires") a signal of some kind when an event occurs, and provides a mechanism by which an action can be automatically taken (that is, some code running) when the event occurs.
+
+For example:
+
+- The user selects, clicks, or hovers the cursor over a certain element.
+- The user chooses a key on the keyboard.
+- The user resizes or closes the browser window.
+- A web page finishes loading.
+- A form is submitted.
+- A video is played, paused, or ends.
+- An error occurs.
+
+## what are different events ?
+
+In JavaScript, events represent occurrences or interactions that happen in the browser. Here are some of the commonly used events:
+
+1. **Mouse Events:**
+   - `click`: Occurs when the user clicks an element.
+   - `dblclick`: Occurs when the user double-clicks an element.
+   - `mousedown`: Occurs when the mouse button is pressed over an element.
+   - `mouseup`: Occurs when the mouse button is released over an element.
+   - `mousemove`: Occurs when the mouse pointer is moving while over an element.
+   - `mouseover`: Occurs when the mouse pointer enters an element.
+   - `mouseout`: Occurs when the mouse pointer leaves an element.
+
+2. **Keyboard Events:**
+   - `keydown`: Occurs when a key is pressed down.
+   - `keyup`: Occurs when a key is released.
+   - `keypress`: Occurs when a key is pressed and released.
+
+3. **Form Events:**
+   - `submit`: Occurs when a form is submitted.
+   - `reset`: Occurs when a form is reset.
+   - `change`: Occurs when the value of an input element changes.
+   - `input`: Similar to `change`, occurs when the value of an input element changes.
+
+4. **Focus Events:**
+   - `focus`: Occurs when an element gets focus.
+   - `blur`: Occurs when an element loses focus.
+
+5. **Window Events:**
+   - `load`: Occurs when a page has finished loading.
+   - `unload`: Occurs when a page is being unloaded (closed or navigated away).
+   - `resize`: Occurs when the browser window is resized.
+   - `scroll`: Occurs when the user scrolls in an element.
+
+6. **Document Events:**
+   - `DOMContentLoaded`: Occurs when the HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+   - `readystatechange`: Occurs when the readyState property of the document changes (used in older versions of Internet Explorer).
+
+7. **Media Events:**
+   - `play`: Occurs when media playback begins.
+   - `pause`: Occurs when media playback is paused.
+   - `ended`: Occurs when media playback completes.
+
+8. **Drag and Drop Events:**
+   - `dragstart`: Occurs when the user starts dragging an element.
+   - `dragend`: Occurs when the user has finished dragging an element.
+   - `dragover`: Occurs when a dragged element is being dragged over a valid drop target.
+   - `drop`: Occurs when the dragged element is dropped on a valid drop target.
+
+9. **Animation Events:**
+   - `animationstart`: Occurs when a CSS animation starts.
+   - `animationend`: Occurs when a CSS animation completes.
+   - `animationiteration`: Occurs when a CSS animation completes one iteration.
+
+These events are just a subset, and there are many more events available in the DOM. Additionally, custom events can be created using the `CustomEvent` constructor for more specialized use cases.
+
+## what is event delegation and event capturing ?
+
+Event capturing and event bubbling are two phases of the event propagation process in the DOM (Document Object Model). These phases describe the order in which events are handled when they occur on a nested structure of HTML elements.
+
+### Event Capturing (Trickling Phase):
+
+- **Order:** During the capturing phase, the event starts from the root of the DOM hierarchy and trickles down to the target element.
+- **Useful for:** It can be useful for global operations or setups that need to be executed before the event reaches the target element.
+
+```plaintext
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| root                                                                                                   |
+|   |                                                                                                     |
+|   |   |                                                                                                 |
+|   |   |   |                                                                                             |
+|   |   |   |   |                                                                                         |
+|   |   |   |   |   |      capturing phase                                                                |
+|   |   |   |   |   |-----------------------> target element                                             |
+|   |   |   |   |   |                                                                                     |
+|   |   |   |   |                                                                                         |
+|   |   |   |                                                                                             |
+|   |   |                                                                                                 |
+|   |                                                                                                     |
+|                                                                                                         |
+```
+
+### Event Bubbling (Bubbling Phase):
+
+- **Order:** During the bubbling phase, the event starts from the target element and bubbles up to the root of the DOM hierarchy.
+- **Useful for:** It is useful for handling events on specific elements and allows you to capture the event at various levels in the DOM hierarchy.
+
+```plaintext
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| root                                                                                                   |
+|   |                                                                                                     |
+|   |   |                                                                                                 |
+|   |   |   |                                                                                             |
+|   |   |   |   |                                                                                         |
+|   |   |   |   |   |      bubbling phase                                                                 |
+|   |   |   |   |   |<----------------------- target element                                             |
+|   |   |   |   |                                                                                         |
+|   |   |   |                                                                                             |
+|   |   |                                                                                                 |
+|   |                                                                                                     |
+|                                                                                                         |
+```
+
+### How to Use Event Capturing and Bubbling:
+
+- **addEventListener:**
+  - When you use `addEventListener`, the third parameter is a boolean that specifies the event phase: `true` for capturing and `false` (or omitted) for bubbling.
+  
+  ```javascript
+  element.addEventListener('click', handler, true); // Capturing phase
+  element.addEventListener('click', handler, false); // Bubbling phase (default)
+  ```
+
+- **Legacy Methods:**
+  - The older methods like `attachEvent` (for Internet Explorer) do not support event capturing.
+
+### Event.stopPropagation():
+
+- To prevent an event from continuing through either the capturing or bubbling phase, you can use the `stopPropagation` method.
+  
+  ```javascript
+  function handleClick(event) {
+    // Handle the event
+    event.stopPropagation(); // Stop the event from propagating further
+  }
+
+  element.addEventListener('click', handleClick, true); // Capturing phase
+  ```
+
+Understanding event capturing and bubbling is crucial for managing complex event handling scenarios, especially when dealing with nested HTML structures.
+
+## how can we stop propagation of events?
+
+To stop the propagation of an event in JavaScript, you can use the `stopPropagation()` method. This method is available on the event object that is passed to your event handler function.
+
+Here's an example:
+
+```html
+<button id="parentButton">
+  Click me
+  <button id="childButton">Nested Button</button>
+</button>
+
+<script>
+  document.getElementById('parentButton').addEventListener('click', function (event) {
+    console.log('Parent button clicked');
+    // Stop the event from propagating further
+    event.stopPropagation();
+  });
+
+  document.getElementById('childButton').addEventListener('click', function (event) {
+    console.log('Child button clicked');
+    // The event will not reach the parent button due to stopPropagation
+  });
+</script>
+```
+
+In this example, when the nested button (`childButton`) is clicked, the event handler for the child button is triggered first. Inside that handler, `event.stopPropagation()` is called, preventing the event from reaching the parent button's event handler. As a result, the parent button's click event won't be triggered.
+
+Here's a breakdown of the code:
+
+- Clicking the child button triggers its event handler, logging "Child button clicked" to the console.
+- The `event.stopPropagation()` method is called in the child button's event handler, preventing the event from reaching the parent button.
+- As a result, the parent button's event handler is not executed.
+
+Keep in mind that while `stopPropagation()` prevents the event from propagating to the parent and further up the DOM hierarchy, it doesn't prevent the default behavior associated with the event. If the event has a default action (e.g., following a link or submitting a form), you might also need to use `event.preventDefault()` to prevent that default action.
+
+## What is prevent default behavior ?
+
+
+## locating DOM elements using selector ?
+
+
+## what is Append and AppendChild Function ?
+
+
+## what are promises and async programming in js ?
+
+
+## what is fetch api ?
+
+
+## what is data-* attributes in JS and html ?
+
+
+## what is this keyword in js ?
+
+## what is call,apply, bind ?
+
+
+## history of es features ?
