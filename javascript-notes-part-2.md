@@ -1217,25 +1217,241 @@ Keep in mind that while `stopPropagation()` prevents the event from propagating 
 
 ## What is prevent default behavior ?
 
+In the context of web development and JavaScript, the term "preventDefault" refers to a method that can be called on an event object to stop the default behavior associated with that event.
 
-## locating DOM elements using selector ?
+When an event occurs in a web page, such as a click on a link or a form submission, the browser performs a default action associated with that event. The `preventDefault` method allows you to stop this default behavior.
+
+Here's an example using JavaScript and the DOM (Document Object Model):
+
+```javascript
+document.getElementById('myLink').addEventListener('click', function(event) {
+  // Prevent the default behavior of the link click
+  event.preventDefault();
+
+  // Your custom code goes here
+  console.log('Link clicked, but default behavior prevented.');
+});
+```
+
+In this example, when a user clicks on the HTML element with the ID "myLink," the associated event listener is triggered. Inside the event listener, `event.preventDefault()` is called, preventing the default behavior of the link click, which would typically navigate to the URL specified in the href attribute.
+
+This technique is often used in scenarios where you want to handle an event in a custom way without allowing the browser to perform its default action. It's commonly used with form submissions, link clicks, and other user interactions in web development.
+- ### Let's consider an example using an HTML form and JavaScript. Suppose you have a form with an input field and a submit button, and you want to prevent the form from being submitted when the user clicks the submit button. Instead, you want to perform some custom validation and handling. Here's how you can use preventDefault:
+
+eg : 
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Prevent Default Example</title>
+      </head>
+      <body>
+
+      <form id="myForm">
+         <label for="username">Username:</label>
+         <input type="text" id="username" name="username" required>
+         <button type="submit" id="submitButton">Submit</button>
+      </form>
+
+      <script>
+         document.getElementById('myForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Perform custom validation or handling
+            validateAndSubmit();
+         });
+
+         function validateAndSubmit() {
+            // Custom validation logic goes here
+            var usernameInput = document.getElementById('username');
+            var username = usernameInput.value;
+
+            if (username.length < 3) {
+            alert('Username must be at least 3 characters long.');
+            } else {
+            // If validation passes, you can perform the form submission or other actions
+            alert('Form submitted successfully!');
+            }
+         }
+      </script>
+
+      </body>
+      </html>
 
 
-## what is Append and AppendChild Function ?
+## Different Node Methods ?
+
+ ###   1. firstChild : 
+
+         The read-only firstChild property of the Node interface returns the node's first child in the tree, or null if the node has no children.
+   - ####   Note: This property returns any type of node that is the first child of this one. It may be a Text or a Comment node. If you want to get the first Element that is a child of another element, consider using Element.firstElementChild
+
+   eg : 
+
+            <p id="para">
+            <span>hey</span>
+            </p>
+
+            Here first child is the text node.
+   - so if we do document.getElementById("para").firstChild it will return #text
+
+   ### In the above, the console will show '#text' because a text node is inserted to maintain the whitespace between the end of the opening <p> and <span> tags. Any whitespace will create a #text node, from a single space to multiple spaces, returns, tabs, and so on.
+
+### 2. Element: firstElementChild and (lastElementChild) property
+
+The Element.firstElementChild read-only property returns an element's first child Element, or null if there are no child elements.
+Element.firstElementChild includes only element nodes. To get all child nodes, including non-element nodes like text and comment nodes, use Node.firstChild.
+
+### 3. to get previous and nextSibling 
+
+To specifically get the next and previous sibling elements (skipping text or comment nodes) in JavaScript, you can use the following methods:
+
+1. **`nextElementSibling` Property:**
+   - The `nextElementSibling` property returns the next sibling element of the specified element, excluding text nodes and comment nodes.
+
+   Example:
+   ```javascript
+   var currentElement = document.getElementById('exampleElement');
+   var nextElementSibling = currentElement.nextElementSibling;
+   ```
+
+2. **`previousElementSibling` Property:**
+   - The `previousElementSibling` property returns the previous sibling element of the specified element, excluding text nodes and comment nodes.
+
+   Example:
+   ```javascript
+   var currentElement = document.getElementById('exampleElement');
+   var previousElementSibling = currentElement.previousElementSibling;
+   ```
+
+Here's a more complete example:
+
+```javascript
+var currentElement = document.getElementById('exampleElement');
+
+// Get the next sibling element
+var nextElementSibling = currentElement.nextElementSibling;
+if (nextElementSibling) {
+    console.log('Next Element Sibling:', nextElementSibling);
+} else {
+    console.log('No next element sibling.');
+}
+
+// Get the previous sibling element
+var previousElementSibling = currentElement.previousElementSibling;
+if (previousElementSibling) {
+    console.log('Previous Element Sibling:', previousElementSibling);
+} else {
+    console.log('No previous element sibling.');
+}
+```
+
+These properties directly provide the next and previous sibling elements of the specified element, making it convenient to work with element nodes specifically, excluding text nodes and comment nodes.
+
+### 4. AppendChild
+
+The appendChild() method of the Node interface adds a node to the end of the list of children of a specified parent node.
+
+# Append a paragraph to the body
+const p = document.createElement("p");
+
+document.body.appendChild(p);
 
 
-## what are promises and async programming in js ?
+### 5. contains 
+
+The `contains` method of a Node in JavaScript is used to check if a specific node is a descendant of the given node. It returns a boolean value: `true` if the node is a descendant, and `false` otherwise.
+
+Here's an example to illustrate how the `contains` method works:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node Contains Example</title>
+</head>
+<body>
+
+  <div id="parentDiv">
+    <p id="childParagraph">This is a paragraph inside a div.</p>
+  </div>
+
+  <script>
+    var parentDiv = document.getElementById('parentDiv');
+    var childParagraph = document.getElementById('childParagraph');
+
+    // Check if parentDiv contains childParagraph
+    var isChildInParent = parentDiv.contains(childParagraph);
+
+    if (isChildInParent) {
+      console.log('childParagraph is a descendant of parentDiv.');
+    } else {
+      console.log('childParagraph is not a descendant of parentDiv.');
+    }
+  </script>
+
+</body>
+</html>
+```
+
+In this example:
+
+- We have an HTML structure with a `<div>` element (`parentDiv`) containing a `<p>` element (`childParagraph`).
+- In the script, we use `document.getElementById` to get references to both the parent and child elements.
+- We then use the `contains` method on the `parentDiv` to check if it contains the `childParagraph`.
+- The result is stored in the variable `isChildInParent`, and we log a message based on the result.
+
+When you run this script, it should log "childParagraph is a descendant of parentDiv" because the `childParagraph` is indeed contained within the `parentDiv`. If you were to change the parent-child relationship or check for containment in a different way, the result might be different. The `contains` method is useful for checking the hierarchy relationships between nodes in the DOM.
 
 
-## what is fetch api ?
+### 5. Element.insertBefore 
+
+The insertBefore() method of the Node interface inserts a node before a reference node as a child of a specified parent node.
+
+If the given node already exists in the document, insertBefore() moves it from its current position to the new position. (That is, it will automatically be removed from its existing parent before appending it to the specified new parent.)
 
 
-## what is data-* attributes in JS and html ?
+### 6. Element.setAttribute
+Sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value.
 
 
-## what is this keyword in js ?
+            <button>Hello World</button>
+            const button = document.querySelector("button");
+            button.setAttribute("name", "helloButton");
 
-## what is call,apply, bind ?
+- there are similar methods to setAttribute, like setAttribute sets or adds the new attribute same way, `removeAttribute` removes the attribute, `getAttribute` returns the value of attribute,if attribute not present it returns null. `getAttributeNames` which returns the array of attributes.
+
+### 7. Element.Remove()
+The Element.remove() method removes the element from the DOM
+
+---
+---
+---
+---
+---
+---
+---
+---
+---
+# Projects link  regarding DOM and js Events
 
 
-## history of es features ?
+### Project 1 - Drag and Drop Events
+https://github.com/rohitsachdeva27/JS-Example-For-Drag-Drop
+
+### Project 2 - Tic Tac Toe Game
+https://github.com/rohitsachdeva27/TicTacToeGame
+
+--- 
+---
+---
+---
+---
+---
+---
+---
