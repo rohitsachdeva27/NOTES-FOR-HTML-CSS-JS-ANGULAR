@@ -1,4 +1,3 @@
-
 ## FAQ
 
 ## what is return value of function ?
@@ -1455,3 +1454,275 @@ https://github.com/rohitsachdeva27/TicTacToeGame
 ---
 ---
 ---
+
+## what is an API ?
+
+API stands for Application programming interface. As we know js is client side programming language, it is used to render the data to be shown to the users, data which is dynamic. 
+
+When we say dynamic data, it means with each action of the user, data should be changed, or data should react to the user events. like :
+
+   - flipkart the site has the header which has options `Mobiles` `Mens` , when user clicks on Mobiles , the user gets the data regarding onlu mobiles phones, is that data stored at client side ???
+
+#### No - The data is stored at client side, the data is stored at server or we can say in layman language the central or distributed system.
+
+Then how does js or our UI gets the data from that server.
+
+### - `The Answer is An API`
+
+The API stands for APPlication Programming Interface. API is an interface or communicating mechanism for 2 or more systems. when we say API is connecting or communicating mechanism it means that api lets 2 or more systems share data or communicate with each other.
+
+So now we know API lets us commnunicate with the systems kept apart.
+key points how API let us communicate:
+
+## 1. It defines the methods and data formats that applications can use to request and exchange information.
+
+- means that API has some set of default conditions, which are methods, and it has also defined in which format data can be returned.
+
+
+#### Why Do we need API's ?
+
+      Here are some key points about APIs:
+
+      Communication Bridge
+       APIs serve as a bridge between different software systems, enabling them to interact and exchange data in a standardized way.
+
+      Abstraction: 
+      APIs abstract the internal workings of a system, providing a clear and standardized interface for interacting with it. This allows developers to use the functionality of a system without needing to understand its internal implementation details.
+
+      Standardization: 
+      APIs provide a standard way for developers to access the features or data of an application, service, or platform. This standardization facilitates interoperability and integration.
+
+      Data Format: 
+      APIs often use standard data formats such as JSON (JavaScript Object Notation) or XML (eXtensible Markup Language) to structure the information being exchanged between systems.
+
+      HTTP and RESTful APIs: 
+      Many modern APIs are built using the HTTP (Hypertext Transfer Protocol) and follow REST (Representational State Transfer) principles. These APIs are commonly referred to as RESTful APIs.
+
+      Endpoints: 
+      APIs expose specific endpoints or URLs that developers can use to perform certain actions or retrieve specific information.
+
+
+## Now we understood that our js aplication can interact with the data over the other systems using API , which are bridge between them. but how actually does an API look like ????
+
+API is basically an url or an endpoint.
+
+lets consider API as messenger or a person who will pass the message to and fro.
+
+` There are 2 persons Person A and Person B, living far from each other. They want to communicate with each other, but they dont have any medium. so person B thought let me hire someone who will pass the data from here and there. IF person A needed to send some data, person A will call the messenger and give him the data, and messenger will pass the data to the person B, in return person B if needed to respond, will send the data through the messenger and messenger will deliver to the person A`.
+
+The messenger here for us in API, which carries the request and delivers the response. We just need to give the address and data to the messenger , it will deliver .
+
+
+### in terms of API, the address is endpoint or URL and requested data is known as data or payload.
+
+## One more point, is it neccessary that only person A will request the data, it can also send the data or can request other actions.
+
+- Those different actions are called methods, which are `GET`,`POST`,
+`DELETE`, `PATCH or PUT`.
+
+API endpoints are like channels through which different parts of a software application can communicate with each other. These endpoints are often associated with specific HTTP methods, such as GET, POST, PUT, or DELETE, which define the type of operation to be performed on the resource.
+
+
+## Anatomy of API endpoint ?
+
+Consider a URL  : https://api.example.com/users
+
+In the URL "https://api.example.com/users," different parts can be identified based on the standard structure of a URL:
+
+1. **Scheme:** `https` is the scheme or protocol. It indicates how the resource is going to be accessed. In this case, it's using the Hypertext Transfer Protocol Secure (HTTPS).
+
+2. **Domain:** `api.example.com` is the domain or hostname. It identifies the server where the resource is located.
+
+3. **Path:** `/users` is the path. It specifies the location or endpoint on the server where the desired resource can be found. In the context of an API, this often corresponds to a specific functionality or set of data, such as retrieving a list of users.
+
+Collectively, the combination of the scheme, domain, and path forms the complete URL, specifying the address of the resource or service you want to access. In the example given, the URL is indicating that you are making a secure (HTTPS) request to the server at `api.example.com` and specifically targeting the "users" resource or functionality.
+
+It's worth noting that URLs may also include additional components, such as:
+
+- **Port:** If a specific port is used, it would be included in the URL (e.g., `https://api.example.com:8080`).
+
+- **Query Parameters:** These are additional parameters provided in the URL after a question mark (`?`), typically used to pass information to the server. For example, `https://api.example.com/users?limit=10` might request only the first 10 users.
+
+- **Fragment:** If the URL points to a specific section within a resource, a fragment identifier preceded by a hash (`#`) can be included (e.g., `https://example.com/page#section1`).
+
+In the given example "https://api.example.com/users," the focus is on the scheme, domain, and path, indicating the secure access to the "users" resource on the server.
+
+## what is fetch api ?
+
+The Fetch API is a modern JavaScript API that provides an interface for making HTTP requests and handling responses. It is designed to be more flexible and powerful than the older XMLHttpRequest (XHR) object, offering a simpler and more consistent way to work with network requests in web applications.
+
+Key features of the Fetch API include:
+
+1. **Promise-based:** The Fetch API is promise-based, making it easier to work with asynchronous code. It uses the `Promise` object to handle both successful responses and errors.
+
+2. **Unified Request and Response:** Unlike the XMLHttpRequest object, which separates the concepts of request and response, the Fetch API uses a unified `Request` and `Response` object model. This makes it easier to inspect and manipulate both request and response details.
+
+3. **Stream Support:** The Fetch API supports streaming of both request and response bodies, allowing for more efficient handling of large amounts of data.
+
+4. **Headers and CORS Support:** It provides a `Headers` object for working with HTTP headers and supports Cross-Origin Resource Sharing (CORS) by default.
+
+5. **JSON Handling:** The Fetch API includes built-in methods for working with JSON data, making it convenient to send and receive JSON payloads.
+
+Here's a basic example of using the Fetch API to make a simple GET request:
+
+```javascript
+// Making a simple GET request
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the response as JSON
+  })
+  .then(data => {
+    console.log(data); // Handle the data
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+```
+
+In this example, `fetch` returns a Promise that resolves to the `Response` object representing the response to the request. The code then checks if the response was successful (status code in the range 200-299), parses the JSON data if available, and handles any errors.
+
+The Fetch API provides various options and configurations for different types of requests (GET, POST, etc.) and allows you to set headers, control caching behavior, and more. It has become the standard for making HTTP requests in modern web development.
+
+https://medium.com/@rohitsachdeva97/what-are-apis-and-how-can-we-fetch-data-using-url-in-js-16ee799adf89
+
+## what are promises and async programming in js ?
+
+We know that javascript is syncronous programming language, which means that it executes the code line by line.
+
+refer to the blog for more desc.
+https://medium.com/@rohitsachdeva97/promises-and-asynchronous-programming-in-javascript-742de517762f
+
+## promise chaining and error handling ?
+JavaScript Promises provide several methods to handle asynchronous operations in a more structured and readable way. Here are some of the commonly used Promise methods along with examples:
+
+1. **`Promise.resolve(value)`:**
+   - Creates a Promise that is resolved with the given value.
+
+   ```javascript
+   const resolvedPromise = Promise.resolve("Resolved value");
+   resolvedPromise.then((result) => console.log(result)); // Output: "Resolved value"
+   ```
+
+2. **`Promise.reject(reason)`:**
+   - Creates a Promise that is rejected with the given reason.
+
+   ```javascript
+   const rejectedPromise = Promise.reject("Rejection reason");
+   rejectedPromise.catch((error) => console.error(error)); // Output: "Rejection reason"
+   ```
+
+3. **`Promise.all(iterable)`:**
+   - Returns a Promise that fulfills when all promises in the iterable are fulfilled or rejects when any of the promises is rejected.
+
+   ```javascript
+   const promise1 = Promise.resolve("One");
+   const promise2 = Promise.resolve("Two");
+
+   Promise.all([promise1, promise2])
+     .then((values) => console.log(values)); // Output: ["One", "Two"]
+   ```
+
+4. **`Promise.race(iterable)`:**
+   - Returns a Promise that fulfills or rejects as soon as one of the promises in the iterable fulfills or rejects.
+
+   ```javascript
+   const promise3 = new Promise((resolve) => setTimeout(resolve, 1000, "Three"));
+   const promise4 = new Promise((reject) => setTimeout(reject, 500, "Four"));
+
+   Promise.race([promise3, promise4])
+     .then((result) => console.log(result)) // Output: "Four"
+     .catch((error) => console.error(error));
+   ```
+
+5. **`.then(onFulfilled, onRejected)`:**
+   - Attaches callbacks for the resolution and rejection of a Promise.
+
+   ```javascript
+   const fetchData = () => new Promise((resolve) => setTimeout(resolve, 1000, "Data"));
+
+   fetchData()
+     .then((data) => console.log(data)); // Output: "Data"
+   ```
+
+6. **`.catch(onRejected)`:**
+   - Attaches a callback for the rejection of a Promise.
+
+   ```javascript
+   const rejectedPromise = Promise.reject("Error");
+
+   rejectedPromise
+     .catch((error) => console.error(error)); // Output: "Error"
+   ```
+
+7. **`.finally(onFinally)`:**
+   - Attaches a callback that is executed when the Promise is settled, regardless of whether it's fulfilled or rejected.
+
+   ```javascript
+   const fetchData = () => new Promise((resolve) => setTimeout(resolve, 1000, "Data"));
+
+   fetchData()
+     .then((data) => console.log(data))
+     .catch((error) => console.error(error))
+     .finally(() => console.log("Finally executed")); // Output: "Data" (after 1 second) and "Finally executed"
+   ```
+
+These are some of the main methods provided by the Promise object in JavaScript. They help in managing asynchronous code and handling the outcomes of asynchronous operations in a more organized manner.
+
+## what is async and await ?
+`async` and `await` are features in JavaScript that simplify working with asynchronous code, making it look and behave more like synchronous code. They were introduced in ECMAScript 2017 (ES8) and provide a cleaner syntax for dealing with promises.
+
+1. **`async` Function:**
+   - The `async` keyword is used to define a function that returns a promise.
+   - Inside an `async` function, you can use the `await` keyword to pause the execution of the function until the promise is resolved, and then the function resumes.
+
+   ```javascript
+   async function fetchData() {
+     try {
+       const response = await fetch('https://api.example.com/data');
+       const data = await response.json();
+       console.log(data);
+     } catch (error) {
+       console.error('Error fetching data:', error);
+     }
+   }
+
+   fetchData();
+   ```
+
+2. **`await` Expression:**
+   - The `await` keyword is used to wait for a promise to resolve. It can only be used inside an `async` function.
+   - When `await` is used, it pauses the execution of the `async` function until the promise is settled (either fulfilled or rejected).
+
+   ```javascript
+   async function example() {
+     const result = await somePromiseFunction();
+     console.log(result);
+   }
+   ```
+
+   Here, `somePromiseFunction` is assumed to return a promise.
+
+The use of `async` and `await` makes asynchronous code more readable and maintainable compared to chaining `.then()` callbacks. It helps avoid the "callback hell" problem, making the code resemble synchronous code while still being asynchronous behind the scenes.
+
+Remember that an `async` function always returns a promise. If the function explicitly returns a value, the promise will be resolved with that value. If the function throws an exception, the promise will be rejected with the thrown exception.
+
+
+## what is this keyword in js ?
+
+
+
+## what is call,apply, bind ?
+
+
+
+## classes in js ?
+
+
+
+## history of es features ?
+
+
+
