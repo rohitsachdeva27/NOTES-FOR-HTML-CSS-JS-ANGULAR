@@ -1,3 +1,4 @@
+
 ## FAQ
 
 ## what is return value of function ?
@@ -1712,17 +1713,176 @@ Remember that an `async` function always returns a promise. If the function expl
 
 ## what is this keyword in js ?
 
+this represents an object that executes the current function. In short, this is defined by the function execution context. Such as how a function is called, it refers to a global object window. For example, when a function is being executed from a global object.
 
 
 ## what is call,apply, bind ?
 
+In JavaScript, `call`, `apply`, and `bind` are methods that allow you to control the value of `this` and pass arguments to functions in different ways.
+
+1. **`call`:**
+   - The `call` method is used to invoke a function with a specified `this` value and individual arguments passed as arguments (comma-separated).
+
+   ```javascript
+   function greet(name) {
+     console.log(`Hello, ${name}!`);
+   }
+
+   greet.call(null, 'John');
+   ```
+
+   In this example, `call` is used to invoke the `greet` function with `this` set to `null` and the argument `'John'`.
+
+2. **`apply`:**
+   - The `apply` method is similar to `call`, but it takes an array or an array-like object as the second argument, which is unpacked as individual arguments for the function.
+
+   ```javascript
+   function introduce(firstName, lastName) {
+     console.log(`My name is ${firstName} ${lastName}.`);
+   }
+
+   introduce.apply(null, ['John', 'Doe']);
+   ```
+
+   Here, `apply` is used to invoke the `introduce` function with `this` set to `null` and the arguments `['John', 'Doe']`.
+
+3. **`bind`:**
+   - The `bind` method creates a new function that, when called, has its `this` value set to a specific value and prepends any provided arguments to the original function's arguments.
+
+   ```javascript
+   function saySomething(message) {
+     console.log(`${this.name} says: ${message}`);
+   }
+
+   const person = { name: 'John' };
+   const sayHello = saySomething.bind(person, 'Hello');
+
+   sayHello(); // Output: John says: Hello
+   ```
+
+   In this example, `bind` is used to create a new function `sayHello` with `this` set to `person` and an additional argument `'Hello'`.
+
+**Key Differences:**
+- `call` and `apply` immediately invoke the function, while `bind` returns a new function without immediately invoking it.
+- `call` and `apply` are similar; the primary difference is in how arguments are passed.
+- `bind` is often used to create functions with a fixed `this` value, which can be useful in scenarios like event handlers.
+
+**Common Use Cases:**
+- Changing the context of a function.
+- Partial application of functions (pre-setting some arguments).
+- Creating new functions with a fixed `this` value.
+
+Remember that arrow functions in JavaScript do not have their own `this` and `arguments`. The behavior of `call`, `apply`, and `bind` is different when used with arrow functions compared to regular functions.
 
 
 ## classes in js ?
 
+In JavaScript, classes are a way to define a blueprint for creating objects with shared properties and methods. The introduction of classes in ECMAScript 2015 (ES6) brought a more structured and familiar syntax for object-oriented programming in JavaScript.
+
+Here's a basic example of a class definition:
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+// Creating an instance of the class
+const person1 = new Person('John', 30);
+
+// Calling a method on the instance
+person1.greet(); // Output: Hello, my name is John and I'm 30 years old.
+```
+
+Let's break down the key concepts:
+
+1. **Class Declaration:**
+   - `class Person` declares a class named `Person`.
+
+2. **Constructor Method:**
+   - The `constructor` method is a special method that is called when an object is instantiated from the class. It is used to initialize object properties.
+
+3. **Instance Properties:**
+   - `this.name` and `this.age` are instance properties, unique to each instance of the class.
+
+4. **Methods:**
+   - The `greet` method is a method of the class. Methods define behaviors associated with instances of the class.
+
+5. **Instantiation:**
+   - `const person1 = new Person('John', 30);` creates an instance of the `Person` class with specific property values.
+
+6. **Instance Methods:**
+   - `person1.greet();` calls the `greet` method on the `person1` instance.
+
+Classes provide a more organized and intuitive way to work with object-oriented programming concepts in JavaScript, but it's important to note that under the hood, JavaScript's prototype-based inheritance is still in play. Classes in ES6 are essentially syntactic sugar over the existing prototype-based model.
 
 
 ## history of es features ?
+
+Javascript Version	Features Added
+
+
+
+Ecma script 2013 or es3 	ECMAScript 3 laid the foundation for JavaScript development and was widely supported by browsers for many years.
+
+Features: 
+1.	Primitive data types: Undefined, Null, Boolean,Number, and String.
+2.	Conditional statements: if, else if, else.
+3.	The Object constructor and prototype.
+4.	Arrays and array manipulation methods
+
+ECMAScript 4 (ES4) was a proposed version of the ECMAScript standard that underwent development but was eventually abandoned in favor of ECMAScript 5 (ES5). The development of ES4 faced challenges and disagreements within the ECMAScript community, and it was decided to abandon the ES4 effort in favor of a more incremental approach, leading to the eventual release of ES5.	
+
+Ecma Scrpipt 2015 or Es6	The 6th edition, ECMAScript 6 (ES6) and later renamed to ECMAScript 2015, was finalized in June 2015.
+•	classes
+•	Arrows
+•	enhanced object literals
+•	template strings
+•	destructuring
+•	default + rest + spread
+•	let + const
+•	iterators + for..of
+•	modules
+•	map + set + weakmap + weakset
+•	symbols
+•	subclassable built-ins
+•	promises
+•	math + number + string + array + object APIs
+•	binary and octal literals
+•	reflect api
+•	tail calls
+
+Es7 	Features:
+
+1.	Exponentiation Operator
+2.	Array includes
+
+Es8  (ecma 2017)	Features :
+1.	Object.values();
+2.	Object.entires()
+3.	Object.getOwnPropertyDescriptors()
+4.	Async and await
+Es9 	Features:
+1.	Rest /Spread
+2.	Promise.finally
+Es10 – Ecma-2019	Features:
+1.	String.matchAll()
+2.	Array.flat and flatMap()
+3.	Object.fromEntries()
+4.	Optional catch binding
+Es11 – Ecma script 2020	Features 
+
+1.	Numeric Seprators
+2.	String.replaceAll()
+3.	??= and &&=
+4.	Promise.any
+5.	Private methods in class
 
 
 
