@@ -70,7 +70,7 @@ consider the theoretical design of website like below
 
 we know this is web applications contains all these elements
 
-<img width="886" alt="Screenshot 2023-12-09 at 3 38 12 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/af774c68-f11a-4dcc-a7f6-3ff4cc745c1a">
+<img width="662" alt="Screenshot 2023-12-09 at 3 41 35 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/800adfa1-90fb-4385-8179-715a29bf7f26">
 
 
 consider we have developed a website using html and css only.
