@@ -63,8 +63,37 @@ Typescript is compiled into javascript. thats how angular application works.
 
 Before coming to Single page application consider we have to build a ecommerce website which sells apparels of `mens`, `womens`, `kids`.
 
+consider the theoretical design of website like below
+
+<img width="886" alt="Screenshot 2023-12-09 at 3 38 12 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/c00d224b-c9ab-4360-b6ac-d243f639ad64">
+
+
+we know this is web applications contains all these elements
+
+<img width="662" alt="Screenshot 2023-12-09 at 3 41 35 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/800adfa1-90fb-4385-8179-715a29bf7f26">
+
+
+consider we have developed a website using html and css only.
+
+in this case we would have developed 3 html pages like:
+
+1. mens.html
+2. womens.html
+3. kids.html
+
+and initialy a page where we will show some home content and 3 links 
+
+when user will click on `men` then we will open a new page mens.html
+
+## in case of mens.html we would have to have header and footer.
+## same in womens.html page also we will have header and footer.
+## same in kids html page we will have header and footer.
+
+there is no way to re-use the functionality which is common.
+
+- in normal applications there are individual pages for a different section or functionality.
+
 #### - SPA : A single-page application (SPA) is a web app that loads a single HTML page and then updates the content dynamically without reloading the entire page. This is different from traditional web applications, which load a new page every time the user clicks a link or submits a form.
----
 
 ### How to install Angular ?
 
