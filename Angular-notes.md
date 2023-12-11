@@ -833,5 +833,130 @@ When we will hit enter, the command will create a folder with 4 files
          | header.component.css
             
 
-### what are angular modules ?
+
+___
+### In angular Component, Module, Services everything is a class serving different purpose.
+
+- `components : fundamental building block, a class where we encapsulate the logic and view together which can be re-used by others.`
+
+---
+
+## what are angular modules ?
+Module is also a class, but it is different from the component. Component contains the logic for a specific functionality, whereas
+`module` is used for binding 
+
+for an example: 
+
+consider example of a government 
+
+    in a government there are members or different post given who work standalone for the beterment to deliver their work.
+    Railway minister : look after railway
+    Finance minister : look after finances and creates finance policy
+
+    these individual ministers are components single unit which performs the task.
+
+    but on wider scale they all are binded to the party or a part of a big group.
+
+    like in India the ministers are part of ruling part 
+
+    where each minister can be regarded as a component 
+    and a party which is a collection of minister, workers and other people can be termed as module.
+
+
+modules are a fundamental organizational unit that help you structure your application. A module in Angular is a mechanism to group related components, directives, pipes, and services together. It encapsulates the functionality of a specific feature or a set of features within your application.
+
+````javascript````
+  in angular module is a class which contains or group the related components , directives, pipes and services.
+
+
+  how does module seprate out things 
+
+  module creates 3 different buckets 
+
+  1. declarations: all components goes inside declaration bucket
+  2. providers : all services goes inside providers
+  3. imports : all modules goes inside imports 
+
+--- 
+
+#### Question : What are Decorators in angular ?
+Answer : 
+In angular `components`, `Modules`,`directives`,`pipes` are all classes caterong to different needs.
+
+But How does angular knows which class to be treated as component, which to be treated as module.
+
+This is done by decorators. Decorators are part of typescript.
+They are used to provide metadata to the class, so that how the class is processed and used at runtime.
+
+  **1. Purpose**: Decorators define key aspects of the component, such as its selector, template, and providers. They tell Angular how to compile and render the component in the application.
+
+  **2. Syntax**: Decorators are declared using the @ symbol followed by the decorator function name and parentheses containing configuration options.
+
+--- 
+
+#### Question : What are Selector in components ?
+Answer : 
+we know angular component is a class which contain view (HTML), CSS and logic related to a particular thing. 
+
+- Angular components are re-usable.
+
+So if some component wants that header in that page how that component can get the header code or header ?
+
+    lets see the structure of a component class.
+
+    @Component({
+      selector:'app-header', 
+      templateUrl:'./header.component.html'
+    })
+    class HeaderComponent{
+
+    }
+
+-  the selector help us to identify and instantiate the component,
+if some component needs header comonent code, then simply that component can do or call the selector.
+
+`<app-header></app-header>`
+
+
+Role of selector :
+
+
+**1. Identifying components:** The selector defines a unique identifier for each component. This identifier allows Angular to determine where to insert the corresponding component within the DOM (Document Object Model) based on the matching HTML element.
+
+**2. Instantiation and rendering:** When Angular encounters an HTML element that matches the component's selector, it instantiates the component and renders its template. This process allows building dynamic and flexible user interfaces.
+
+**3. Types of selectors:** Angular supports various types of selectors, each offering different levels of specificity and flexibility:
+
+* **Element selector:** Matches specific HTML elements, like `app-hero-list`.
+* **Class selector:** Matches HTML elements with a specific class attribute, like `.hero-list`.
+* **Attribute selector:** Matches HTML elements with a specific attribute and value, like `[app-hero-list]`.
+* **CSS selector:** Matches any valid CSS selector, offering maximum flexibility.
+--- 
+
+### Question : 
+
+
+--- 
+
+
+--- 
+#### Question : 
+
+
+--- 
+
+
+--- 
+#### Question : 
+
+
+--- 
+
+
+
+
+
+
+
+
 
