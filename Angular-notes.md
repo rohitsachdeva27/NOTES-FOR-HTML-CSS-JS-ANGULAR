@@ -732,3 +732,121 @@ This code snippet imports the `platformBrowserDynamic` function and your applica
 
 **Overall, `platformBrowserDynamic` is a fundamental component in the Angular framework. It plays a vital role in launching your application and ensuring its smooth operation in the browser environment.**
 
+
+`lets now dive into app folder which contains component and modules`
+--- 
+###  Component : 
+
+    - Angular is modular language which contains components and modules.
+
+  `Component is basically a class which contains the html file and css file with it `.
+
+<span style="color: red">hey</span>
+
+In Angular, a **component** is the fundamental building block of the user interface (UI). It represents a specific section of the UI and encapsulates its functionality, behavior, and presentation logic. 
+
+Here are some key characteristics of Angular components:
+
+**1. Reusable:** Components are designed to be reusable. You can use the same component multiple times in different parts of your application, reducing code duplication and improving maintainability.
+
+**2. Encapsulation:** Components encapsulate their own logic and data. This means that the internal implementation details of a component are hidden from other parts of the application, preventing unexpected interactions and promoting modularity.
+
+**3. Composed:** Components can be composed together to create complex UIs. You can nest components within other components to build hierarchical structures and modular layouts.
+
+**4. Data-driven:** Components are data-driven, meaning their behavior and appearance are determined by the data they receive. This allows for dynamic UIs that can react to changes in data.
+
+**5. Template-based:** Components are defined using a combination of HTML templates and TypeScript code. The HTML template defines the UI structure, while the TypeScript code defines the component's logic and behavior.
+
+Here's a breakdown of the components' structure:
+
+* **Template:** HTML code that defines the component's visual structure and includes placeholders for data binding.
+* **Class:** TypeScript code that defines the component's behavior, including its lifecycle hooks, methods, and properties.
+* **Metadata:** Annotations that provide information about the component, such as its selector, inputs, outputs, and providers.
+
+---
+
+
+### - Module - a module is a container for the related functionalities.
+In Angular, a **module** is a container for organizing and managing related functionalities within your application. It serves as a structural unit that groups components, directives, pipes, services, and other reusable building blocks.
+
+Here are some key characteristics of Angular modules:
+
+**1. Grouping related functionalities:** Modules allow you to group related functionalities together, such as components related to a specific feature or domain of your application. This promotes modularity and separation of concerns, making your code easier to understand and maintain.
+
+**2. Lazy loading:** Modules can be lazy-loaded, meaning they are only loaded when needed. This improves initial load times and reduces memory consumption, especially for large applications.
+
+**3. Dependency injection:** Modules provide a mechanism for injecting dependencies into components, directives, and other modules. This allows you to share services and other resources among different parts of your application without manual instantiation and configuration.
+
+**4. Configuration:** Modules can be configured with metadata that defines their dependencies, providers, and other aspects. This configuration helps ensure that modules are properly initialized and interact with each other correctly.
+
+**5. Hierarchical structure:** Modules can be nested within other modules to create a hierarchical structure. This allows you to organize your application into smaller, more manageable units.
+
+**Here's a breakdown of the key components of a module:**
+
+* **Components:** Reusable UI building blocks that represent specific sections of the application's interface.
+* **Directives:** Modify the behavior of DOM elements or components.
+* **Pipes:** Transform data for display in the template.
+* **Services:** Provide reusable services and functionalities across the application.
+* **Providers:** Define how dependencies are injected into components, directives, and other modules.
+
+**Benefits of using modules in Angular:**
+
+* **Improved code organization:** Modules help organize and group related functionalities, leading to cleaner and more manageable code.
+* **Modular development:** Enables independent development of different parts of your application, reducing dependencies and improving maintainability.
+* **Lazy loading:** Optimizes initial load times and memory consumption by loading modules only when needed.
+* **Dependency injection:** Simplifies the process of sharing resources and services across different parts of your application.
+* **Cleaner code:** Promotes separation of concerns and reduces code duplication.
+
+**Overall, modules are fundamental structural units in Angular applications. Understanding their purpose, structure, and benefits is crucial for building organized, modular, and maintainable applications.**
+
+---
+### - Services:
+In Angular, **services** are reusable functionalities that provide specific business logic and data across your application. They are the backbone of many applications, handling tasks like:
+
+* **Fetching data from APIs:** Services can handle communication with external APIs, retrieving data, and formatting it for consumption by components.
+* **Sharing data among components:** Services act as a central repository for data that needs to be shared by multiple components, preventing redundancy and ensuring data consistency.
+* **Implementing business logic:** Services can encapsulate complex business logic and expose functionalities through public APIs, making them accessible to various components throughout the application.
+* **Managing application state:** Services can store and manage application state data, such as user authentication information, configuration settings, and other persistent data.
+
+Here are some key characteristics of Angular services:
+
+* **Singleton instances:** Services are instantiated only once during the lifetime of the application, making them a central point for accessing and managing data and functionalities.
+* **Injectables:** Services can be injected into components, directives, and other services through the dependency injection mechanism. This allows for easy access to shared resources and simplifies the process of data manipulation and logic execution.
+* **Reusable:** Services promote code reuse by encapsulating functionality that can be shared across different parts of the application.
+* **Maintainable:** Services improve code maintainability by separating business logic and data concerns from the visual layer.
+
+**Here's a breakdown of the key components of a service:**
+
+* **Class:** TypeScript code that defines the service's logic, including its methods, properties, and lifecycle hooks.
+* **Providers:** Metadata that define how the service is injected into other components.
+* **Dependencies:** Services can themselves depend on other services, allowing for complex functionality chaining and data integration.
+
+**Benefits of using services in Angular:**
+
+* **Improved code organization:** Services separate business logic from the UI, making your code cleaner and more organized.
+* **Modular development:** Services promote modularity by encapsulating related functionalities, simplifying development and maintenance.
+* **Data sharing:** Services facilitate sharing data across different components, ensuring data consistency and reducing redundancy.
+* **Improved testability:** Services can be easily unit tested in isolation, leading to more reliable and maintainable code.
+* **Centralized state management:** Services provide a central location for managing application state, simplifying data access and manipulation.
+
+**Overall, services are essential building blocks for any complex Angular application. Understanding their capabilities and benefits is crucial for building well-structured, efficient, and maintainable applications.**
+
+--- 
+## What are angular components ?
+
+<img width="661" alt="Screenshot 2023-12-11 at 5 14 43 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/ea78f29f-c2d4-4b54-b5d0-975241a91f95">
+
+
+in the above picture, if we seprate out the business logic and html for the particular functionality we can get the fundamanetal buidling blocks of a web application.
+
+These fundamental blocks are known as `Components`.
+
+A component is the fundamental building block of the user interface (UI). It represents a specific section of the UI and encapsulates its functionality, behavior, and presentation logic.
+
+<img width="481" alt="Screenshot 2023-12-11 at 5 29 43 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/98e7859d-55e9-4e56-9c9f-7b1054cf3d7c">
+
+
+- When we generate angular application, angular provides us with the basic initial component which is app component or starting point of the application.
+
+  ```
+
