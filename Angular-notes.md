@@ -103,6 +103,9 @@ Here's how to install Angular on different operating systems:
 
 Angular requires Node.js to run. You can download and install the latest version from the official website: [https://nodejs.org/en/download](https://nodejs.org/en/download)
 
+#### to understand node js in depth : 
+https://www.freecodecamp.org/news/what-is-node-js/
+
 **2. Install Angular CLI:**
 
 Once Node.js is installed, open a terminal and run the following command to install the Angular CLI globally:
