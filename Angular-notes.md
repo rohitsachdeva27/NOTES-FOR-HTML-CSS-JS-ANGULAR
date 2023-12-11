@@ -799,40 +799,10 @@ Here are some key characteristics of Angular modules:
 
 **Overall, modules are fundamental structural units in Angular applications. Understanding their purpose, structure, and benefits is crucial for building organized, modular, and maintainable applications.**
 
----
-### - Services:
-In Angular, **services** are reusable functionalities that provide specific business logic and data across your application. They are the backbone of many applications, handling tasks like:
-
-* **Fetching data from APIs:** Services can handle communication with external APIs, retrieving data, and formatting it for consumption by components.
-* **Sharing data among components:** Services act as a central repository for data that needs to be shared by multiple components, preventing redundancy and ensuring data consistency.
-* **Implementing business logic:** Services can encapsulate complex business logic and expose functionalities through public APIs, making them accessible to various components throughout the application.
-* **Managing application state:** Services can store and manage application state data, such as user authentication information, configuration settings, and other persistent data.
-
-Here are some key characteristics of Angular services:
-
-* **Singleton instances:** Services are instantiated only once during the lifetime of the application, making them a central point for accessing and managing data and functionalities.
-* **Injectables:** Services can be injected into components, directives, and other services through the dependency injection mechanism. This allows for easy access to shared resources and simplifies the process of data manipulation and logic execution.
-* **Reusable:** Services promote code reuse by encapsulating functionality that can be shared across different parts of the application.
-* **Maintainable:** Services improve code maintainability by separating business logic and data concerns from the visual layer.
-
-**Here's a breakdown of the key components of a service:**
-
-* **Class:** TypeScript code that defines the service's logic, including its methods, properties, and lifecycle hooks.
-* **Providers:** Metadata that define how the service is injected into other components.
-* **Dependencies:** Services can themselves depend on other services, allowing for complex functionality chaining and data integration.
-
-**Benefits of using services in Angular:**
-
-* **Improved code organization:** Services separate business logic from the UI, making your code cleaner and more organized.
-* **Modular development:** Services promote modularity by encapsulating related functionalities, simplifying development and maintenance.
-* **Data sharing:** Services facilitate sharing data across different components, ensuring data consistency and reducing redundancy.
-* **Improved testability:** Services can be easily unit tested in isolation, leading to more reliable and maintainable code.
-* **Centralized state management:** Services provide a central location for managing application state, simplifying data access and manipulation.
-
-**Overall, services are essential building blocks for any complex Angular application. Understanding their capabilities and benefits is crucial for building well-structured, efficient, and maintainable applications.**
-
 --- 
 ## What are angular components ?
+
+A angular component is a typescript class which contans the template or view and associated style for it and the business logic.
 
 <img width="661" alt="Screenshot 2023-12-11 at 5 14 43 PM" src="https://github.com/rohitsachdeva27/NOTES-FOR-HTML-CSS-JS-ANGULAR/assets/82018198/ea78f29f-c2d4-4b54-b5d0-975241a91f95">
 
@@ -848,5 +818,20 @@ A component is the fundamental building block of the user interface (UI). It rep
 
 - When we generate angular application, angular provides us with the basic initial component which is app component or starting point of the application.
 
-  ```
+  `` We can generate as many components we wish ``
+
+      command for generating components:
+          ng generate component <component-name>
+          eg : ng generate components heade
+
+
+When we will hit enter, the command will create a folder with 4 files
+    Header
+         | header.component.html
+         | header.component.ts
+         | header.components.spec.ts
+         | header.component.css
+            
+
+### what are angular modules ?
 
