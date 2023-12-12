@@ -1,11 +1,12 @@
 
 ## Angular
 
-### What is Angular ?
+### Question : What is Angular ?
 
 Angular is a TypeScript-based, open-source framework for building single-page web applications (SPAs). It's a popular choice for developers due to its robust features, extensive documentation, and large community.
+----
 
-### what is open-source ?
+### Question: what is open-source ?
 
 Open-source development allows anyone to view the source code, contribute to its development, and report bugs. This transparency fosters a strong community around Angular, where developers can learn from each other, share knowledge, and collaborate on improvements.
 
@@ -13,8 +14,10 @@ Open-source development allows anyone to view the source code, contribute to its
     if i am developing some application for my users and making it public such that anyone can see the code and can use it, if they want can give me feedbacks and report bugs so that by this means developers can engage other developers and can get good insight about the application.
 
 - Open-source development allows for a more rapid pace of innovation. Bug fixes, improvements, and new features can be implemented and released quickly,
+  
+---- 
 
-### What is a framework ?
+### Question: What is a framework ?
 
 Suppose we want to build a house, basic materials that is needed to build a house are `bricks` , `cement`, `steel` , `labour`.
 
@@ -30,16 +33,18 @@ What angular provides :
 
 `angular routing`, `compiler` ,`security`, `angular-forms`, `karma and jasmine frameworks for testing`.
 
+---
 
 ### is Angular not a js framework ?
 
-No! Though we know that Only browsers can understand javascript only.
+Yes, Angular is a js framework, but it uses typescript, which later converts into js only.
 but angular is a typescript based.
 
 Angular was first launched in 2010, by that time it was built using javascript only, but due t few limitations nd more features of typescript in 2016 angular developers came up with new version of angular which was angular 2+, which was complete revamp of angular, and this time they used typescript.
 
+---
 
-### But Browsers can only understand Javascript how angular application which is in typescipt run on browsers ?
+### Question:  But Browsers can only understand Javascript how angular application which is in typescipt run on browsers ?
 
 Typescript is a language by microsoft. it is a superset of javascript, means it is built on javascript using its all features and adding its own features.
 
@@ -47,7 +52,9 @@ Typescript is compiled into javascript. thats how angular application works.
    
     Typescript code -----ts compiler ----> javascript code
 
-### Typescript Language and how it is different from javascript ?
+---
+
+### Question:  Typescript Language and how it is different from javascript ?
 
 - Features
 
@@ -59,7 +66,9 @@ Typescript is compiled into javascript. thats how angular application works.
         6.  Advanced object-oriented features:
         7. Build tooling integration:Compiles TypeScript code to JavaScript, supporting various build tools and configuration options.
 
-### What is Single page application 
+---
+
+### Question:  What is Single page application 
 
 Before coming to Single page application consider we have to build a ecommerce website which sells apparels of `mens`, `womens`, `kids`.
 
@@ -95,7 +104,8 @@ there is no way to re-use the functionality which is common.
 
 #### - SPA : A single-page application (SPA) is a web app that loads a single HTML page and then updates the content dynamically without reloading the entire page. This is different from traditional web applications, which load a new page every time the user clicks a link or submits a form.
 
-### How to install Angular ?
+--- 
+### Question:  How to install Angular ?
 
 Here's how to install Angular on different operating systems:
 
@@ -173,8 +183,8 @@ Node js is also one of them. it can run our javascript.
     2. we need angular cli for angular related stuff, it needs node js to run. 
     3. Node allows you to spin up a lightweight web server to host your application locally in your system.
 
-
-### what is angular cli ?
+---
+### Question: what is angular cli ?
 
 In the download process,we download three things 
 1. node js 
@@ -221,8 +231,8 @@ The Angular CLI (Command Line Interface) is a powerful tool that plays a vital r
 
 **In summary, the Angular CLI is an indispensable tool for any Angular developer.** It provides a comprehensive set of features that simplify and accelerate the development process, while also promoting consistent and high-quality code. Learning and mastering the Angular CLI will significantly enhance your productivity and overall development experience with Angular.
 
-
-### how to create angular application ?
+---
+### Question: how to create angular application ?
 
 *To create angular application we need to use command ng generate <project-name>*
 
@@ -246,19 +256,19 @@ The command automatically installs all necessary dependencies for your project, 
 
 It configures basic routing for your application, allowing you to define navigation between different views and components.
 
-
-### explain the file structure of angular generated ?
+---
+### Question : explain the file structure of angular generated ?
 
 when we created our projet with ng new we saw , cli generated the basic folder structure for our project with few files.
 
- **angular.json** : we know angular-cli is used to generate and do other stuff for angular, like `creating a new project` , `creating a local server`, `build our angular application`. 
+ **1.angular.json** : we know angular-cli is used to generate and do other stuff for angular, like `creating a new project` , `creating a local server`, `build our angular application`. 
 
 so how does angular knows that on which command , what it has to do, these all configuration related to workspace is maintained in angular.json file.
 
 - It stores information about the project's architecture, dependencies, build and test configurations, and other settings.
 - This file allows you to control the build and runtime settings for your Angular application, as well as manage the different environments and configuration profiles for your project.
 
-**package.json** 
+**2.package.json** 
 
 In an Angular application, the `package.json` file plays a crucial role in managing the project's dependencies and build configurations. It acts as a central hub for storing information about the application, including:
 
@@ -293,59 +303,59 @@ In an Angular application, the `package.json` file plays a crucial role in manag
 
 **Overall, the `package.json` file serves as the backbone of your Angular application's development ecosystem. Understanding its structure and contents is crucial for managing dependencies, automating tasks, and ensuring efficient and consistent builds.**
 
-**Package-lock.json**
+**3.Package-lock.json**
 
 `package-lock.json` is a file automatically generated by npm (Node Package Manager) when you install packages in your project. It serves as a lockfile that records the exact versions of all your dependencies and their sub-dependencies, creating a deterministic build environment.
 
 Here's what it does:
 
-**1. Locks package versions:**
+**Locks package versions:**
 
 * `package-lock.json` ensures that everyone working on the project installs the same versions of dependencies, regardless of their local environment or internet connection. This prevents unexpected behavior and inconsistencies during development and deployment.
 
-**2. Reproducible builds:**
+**Reproducible builds:**
 
 * By locking versions, `package-lock.json` guarantees that your project can be built with the same dependencies every time, regardless of when or by whom it is built. This is crucial for maintaining consistency and reproducibility across different environments.
 
-**3. Reduced network traffic:**
+**Reduced network traffic:**
 
 * Since the exact versions are recorded, subsequent package installations only need to download new versions if necessary. This can significantly reduce network traffic and save time, especially for projects with large dependencies.
 
-**4. Conflict resolution:**
+**Conflict resolution:**
 
 * If conflicting versions of a dependency are found, `package-lock.json` helps resolve the conflict by choosing the closest compatible version. This prevents build errors and ensures that your project runs smoothly.
 
-**5. Avoids dependency drift:**
+**Avoids dependency drift:**
 
 * `package-lock.json` helps prevent unintentional changes in dependencies due to minor version bumps or updates in the npm registry. This ensures that your project remains stable and avoids unexpected regressions.
 
 **Overall, `package-lock.json` plays a vital role in maintaining a stable, predictable, and reproducible development environment for your project.** It ensures consistent builds, prevents dependency conflicts, and reduces network traffic, making it an essential part of modern JavaScript development.
 
-**tsConfig.json**
+**4.tsConfig.json**
 
 In an Angular application, `tsconfig.json` is a crucial configuration file that defines how the TypeScript compiler should process your code. It plays a vital role in various aspects of the development process, including:
 
-**1. Compilation:**
+**Compilation:**
 
 * Specifies the compiler options for your TypeScript code, including the target JavaScript version, module resolution strategy, type checking, and other settings.
 * Defines how the compiler generates the JavaScript files that your application runs on.
 
-**2. Building:**
+**Building:**
 
 * Integrates with the Angular CLI to build your application for different environments like development and production.
 * Allows configuration of the build process, including optimizations, minification, and asset handling.
 
-**3. Linting:**
+**Linting:**
 
 * Can be used with tools like TSLint or ESLint to enforce coding style and best practices.
 * Helps maintain code quality and consistency throughout your project.
 
-**4. Debugging:**
+**Debugging:**
 
 * Enables the generation of source maps, which map the compiled JavaScript code back to your original TypeScript code.
 * Facilitates easier debugging by allowing you to inspect the original code when encountering errors.
 
-**5. IDE Support:**
+**IDE Support:**
 
 * Provides information to IDEs like Visual Studio Code or WebStorm to support features like syntax highlighting, code completion, and navigation.
 * Enhances the development experience by making it easier to write and understand your code.
@@ -423,7 +433,7 @@ A well-configured `tsconfig.json` file is essential for ensuring a smooth and ef
 **Overall, understanding and adjusting these options in `tsconfig.json` can greatly improve the development experience and ensure the quality and performance of your Angular application.**
 
 
-**tsconfig-app.json**
+**5.tsconfig-app.json**
 
 In an Angular application, `tsconfig-app.json` is a configuration file that serves as an extension to the main `tsconfig.json` file. It allows you to define specific TypeScript compiler options for your application code, offering more granular control and flexibility.
 
@@ -466,7 +476,7 @@ Here's a breakdown of its role and benefits:
 
 **Overall, `tsconfig-app.json` is a powerful tool for customizing the TypeScript compiler settings for your Angular application. It allows you to achieve finer-grained control over the build process and ensure a tailored development experience.**
 
-**node_modules**
+**6.node_modules**
 
 In Node.js, **node modules** are directories containing reusable code packages. They are analogous to libraries or modules in other programming languages and play a crucial role in building and managing dependencies in your application.
 
@@ -501,8 +511,8 @@ In Node.js, **node modules** are directories containing reusable code packages. 
 
 **Overall, node modules are essential building blocks for modern Node.js development. They enable code reuse, promote modularity, and foster a collaborative ecosystem for building robust and maintainable applications.**
 
-
-### what is difference between build and serve ?
+---
+### Question: what is difference between build and serve ?
 
 The terms "build" and "serve" refer to two different stages in the development lifecycle of an application. Here's a breakdown of their differences:
 
@@ -511,7 +521,6 @@ The terms "build" and "serve" refer to two different stages in the development l
 * **Process:** Building involves compiling your source code and resources (e.g., images, fonts) into a format that can be executed by the intended platform.
 * **Output:** The build process generates the final, deployable version of your application. This typically includes bundled JavaScript files, optimized images, and other resources needed to run the application.
 * **Purpose:** Building is necessary to prepare your application for deployment to a production environment or for distribution to users.
-* **Frequency:** You usually build your application only when you make changes to your code and need to update the deployed version.
 
 **Serve:**
 
@@ -520,7 +529,6 @@ The ng serve command is intentionally for fast, local and iterative developments
 * **Process:** Serving refers to the act of running your application on a web server and making it accessible to users through a web browser.
 * **Output:** Serving doesn't generate any new files. It simply allows users to access and interact with the already-built application.
 * **Purpose:** Serving is used for testing and development purposes. It allows you to see how your application looks and behaves in a real environment without needing to deploy it.
-* **Frequency:** You can serve your application multiple times during development to test different changes and features.
 
 **Here's a table summarizing the key differences:**
 
@@ -532,17 +540,16 @@ The ng serve command is intentionally for fast, local and iterative developments
 | Frequency | Less frequent (after code changes) | More frequent (during development) |
 
 In simpler terms, build is like preparing a meal to be stored and transported, while serve is like cooking and serving the meal to be eaten.
+---
 
-
-### what is the difference between `dependencies` and `dev-dependencies` ?
+### Question: what is the difference between `dependencies` and `dev-dependencies` ?
 
 In an Angular application's `package.json` file, the key differences between `dependencies` and `devDependencies` lie in their purpose and usage:
 
 **Dependencies:**
 
 * **Purpose:** These are libraries and modules essential for the application's **runtime functionality**. They are necessary for the application to run correctly in both development and production environments.
-* **Examples:** Angular core libraries, UI libraries like Bootstrap or Material Design, utility libraries like Lodash or Moment.js.
-* **Installation:** Installed using the `npm install` or `yarn add` command.
+* **Examples:** Angular core libraries, UI libraries like Bootstrap or Material Design, utility libraries like core or rxjs, forms, router.
 * **Bundled:** Included in the final production build of the application.
 
 **DevDependencies:**
@@ -557,14 +564,7 @@ In an Angular application's `package.json` file, the key differences between `de
 * **Clean production builds:** Only the essential libraries required for runtime are included, resulting in a smaller and faster application.
 * **Improved development workflow:** Dev dependencies provide tools and libraries specifically for development tasks, enhancing efficiency and productivity.
 * **Clear project structure:** Separating dependencies makes it easier to understand what your application needs to run versus what is used only during development.
-
-**Additional considerations:**
-
-* Some libraries have both runtime and development functionality. In such cases, they can be listed as both `dependencies` and `devDependencies` depending on their specific usage within your project.
-* It's important to keep your dev dependencies up-to-date to ensure you have the latest tools and features for efficient development.
-
-By understanding the distinction between dependencies and dev dependencies and managing them effectively, you can create clean, efficient, and well-maintained Angular applications.
-
+---
 
 ### Deep dive into Angular Src Folder or main working folder ?
 
