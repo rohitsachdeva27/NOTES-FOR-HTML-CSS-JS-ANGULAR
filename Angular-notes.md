@@ -938,21 +938,164 @@ When we generated our angular project using `ng new `, angular by default provid
 
 - The component contains the data( in the ts file) and the view.
 - we need component class so that we can pass data to the view .
+https://www.tektutorialshub.com/wp-content/uploads/2016/09/Angular-Component.png
 - A component is a typescript class.
 - A component has a `@component` decorator.
 - A decorator is a way to give my class a super power of being a component.
 - A deorator contains `selector`, `templateUrl`,`stylesUrl`.
 
-  https://www.tektutorialshub.com/wp-content/uploads/2016/09/Angular-Component.png
 
+**Building Blocks of Compoonent**
+
+* Template (View)
+The Template defines the layout and content of the View. Without the template,  there is nothing for Angular to render to the DOM.
+
+* Class
+
+The Class provides the data & logic to the View. It contains the Typescript code associated with Template (View). We use TypeScript to create the class.
 ---
 
+### How to create a component ?
 
+ ***  we can also create our own components *** 
+ *There are 2 ways to create components*
 
-### Question : 
+ * Using CLI
+ * Manually creating a component class
 
+ Creating components in Angular involves several steps. Here's a basic guide on how to create components in Angular:
+
+### 1. Install Angular CLI (if not installed):
+
+Make sure you have the Angular CLI installed globally. If not, you can install it using the following command:
+
+```bash
+npm install -g @angular/cli
+```
+
+### 2. Create a New Angular Project:
+
+Create a new Angular project using the CLI:
+
+```bash
+ng new your-project-name
+```
+
+### 3. Navigate to the Project Directory:
+
+Change to the newly created project directory:
+
+```bash
+cd your-project-name
+```
+
+### 4. Create a New Component:
+
+Use the Angular CLI to generate a new component:
+
+```bash
+ng generate component your-component-name
+```
+
+Or, use the shorthand version:
+
+```bash
+ng g c your-component-name
+```
+
+### 5. Explore the Generated Files:
+
+The Angular CLI will generate several files for your new component inside the `src/app` directory. Key files include:
+
+- `your-component-name.component.ts` (Component TypeScript file)
+- `your-component-name.component.html` (Component HTML template)
+- `your-component-name.component.css` (Component CSS styles)
+- `your-component-name.component.spec.ts` (Component unit test)
+
+### 6. Modify the Component:
+
+Edit the generated files to add your component logic, HTML template, and styles. The component class is in the `.ts` file, the template in the `.html` file, and the styles in the `.css` file.
+
+Example of a simple component:
+
+```typescript
+// your-component-name.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-your-component-name',
+  templateUrl: './your-component-name.component.html',
+  styleUrls: ['./your-component-name.component.css']
+})
+export class YourComponentNameComponent {
+  // Component logic goes here
+}
+```
+
+```html
+<!-- your-component-name.component.html -->
+
+<p>Hello, this is your component!</p>
+```
+
+### 7. Use the Component:
+
+Use your component in other parts of your application by referencing its selector in other templates or routing configurations.
+
+### 8. Serve the Application:
+
+Run the application using the following command:
+
+```bash
+ng serve
+```
+
+Visit `http://localhost:4200/` in your browser to see your Angular app in action. Your new component is likely used in the `app.component.html` file by default.
+
+That's it! You've successfully created a new Angular component. You can now build upon this foundation to create more complex components and integrate them into your Angular application.
 
 --- 
+
+### what to do after generating a component ?
+
+lets say we have created a component using cli or manually.
+
+eg: lets say i have created a login component - which contains code related to login finctionality. 
+
+now i want that it should be visible on starting of application, but the component which we have generated, as of now angular does not know about it (if we generate it manually). so make angular aware that we have created a new class we have to provide the component name in declarations array.
+--- 
+
+### what are standalone components ?
+
+Standalone components in Angular are a relatively new feature introduced in **Angular 14** (released in June 2023). They offer a different way to build Angular applications by removing the need for NgModule modules to configure and bundle component dependencies. Here's a breakdown of standalone components:
+
+**What are they?**
+
+Standalone components are self-contained building blocks for your Angular application. They encapsulate logic, data, and UI elements within a single component file, independent of NgModule declarations and imports. This simplifies component creation and reduces boilerplate code related to NgModule configuration.
+
+**When to use them?**
+
+Standalone components are particularly useful for:
+
+* **Micro-frontends:** When building independent UI components that can be easily plugged into different applications without requiring complex module configurations.
+* **Libraries:** When developing reusable UI components that can be consumed by other applications directly without the need for custom NgModule setup.
+* **Simple applications:** For small applications with a limited number of components, standalone components can provide a lightweight and efficient alternative to traditional NgModule-based structures.
+
+**Benefits:**
+
+* **Improved developer experience:** Standalone components simplify component creation and maintenance by eliminating the need for NgModule configurations.
+* **Reduced code complexity:** The codebase becomes cleaner and easier to understand as component dependencies and relationships are more explicit.
+* **Increased modularity:** Standalone components promote better isolation and reusability, making them ideal for microservices and library development.
+* **Smaller bundle size:** By removing the overhead of NgModule compilation, standalone components can potentially lead to smaller application bundles.
+
+**Things to keep in mind:**
+
+* **Limited tooling support:** As a new feature, tooling support for standalone components is still evolving. Some IDEs and code editors might not yet have proper syntax highlighting or autocompletion for standalone component syntax.
+* **Backward compatibility:** Standalone components are not directly compatible with older versions of Angular (prior to v14). You might need to adjust your development workflow and tooling if you want to utilize them in existing projects.
+
+**Overall, standalone components offer a promising approach for building and structuring Angular applications. Their simplicity, modularity, and improved developer experience make them a valuable addition to the Angular ecosystem. However, they are still under development, and it's important to consider the limitations and ensure compatibility with your existing tools and projects.**
+
 
 
 --- 
