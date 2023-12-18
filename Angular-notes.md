@@ -933,6 +933,22 @@ Role of selector :
 * **CSS selector:** Matches any valid CSS selector, offering maximum flexibility.
 --- 
 
+### why components are used ?
+When we generated our angular project using `ng new `, angular by default provides us with the default component with the name **App component**.
+
+- The component contains the data( in the ts file) and the view.
+- we need component class so that we can pass data to the view .
+- A component is a typescript class.
+- A component has a `@component` decorator.
+- A decorator is a way to give my class a super power of being a component.
+- A deorator contains `selector`, `templateUrl`,`stylesUrl`.
+
+  https://www.tektutorialshub.com/wp-content/uploads/2016/09/Angular-Component.png
+
+---
+
+
+
 ### Question : 
 
 
