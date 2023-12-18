@@ -1096,18 +1096,145 @@ Standalone components are particularly useful for:
 
 **Overall, standalone components offer a promising approach for building and structuring Angular applications. Their simplicity, modularity, and improved developer experience make them a valuable addition to the Angular ecosystem. However, they are still under development, and it's important to consider the limitations and ensure compatibility with your existing tools and projects.**
 
-
-
---- 
-#### Question : 
-
-
 --- 
 
+--- 
+### what is data binding ?
+
+lets understand data binding powerful feature in angular by comparing it with native js.
+
+case :
+
+      lets say we have 
+         <h1 id="heading1"></h1>
+
+         if i want to add the text between h1 element dynamic or using js then the code will be look like.
+
+         <script>
+               const name = "Hello Javascript"
+               let ele = document.getElementById("heading1");
+               ele.innerHTML = name;
+         </script>
+
+
+   - The above code can be minimized in angular by the use of data binding feature. 
+
+**Angular provides a way by which we can bind the data in the component class with the view, and angular automatically updates the view**
+
+**TYPES OF DATA BINDING**
+
+- ONE WAY DATA BINDING
+- TWO WAY DATA BINDING 
 
 --- 
-#### Question : 
+### what is ONE WAY BINDING ?
 
+it is a way of data binding when data flows in one direction only.
+
+- either view to the component 
+- or from component to the view 
+
+**But How data can flow ??**
+
+  * Interpolation :
+
+  Interpolation allows us to include expressions as part of any string literal, which we use in our HTML. The angular evaluates the expressions into a string and replaces it in the original string and updates the view. 
+
+      The Angular uses the {{ }} (double curly braces) in the template to denote the interpolation. The syntax is as shown below
+
+      {{ templateExpression }}
+
+
+Interpolation in Angular refers to the process of embedding expressions or variables within double curly braces (`{{ }}`) in the template. It allows you to dynamically bind values from your component's class to your HTML templates.
+
+Here's a simple example to illustrate interpolation:
+
+```typescript
+// app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h1>{{ pageTitle }}</h1>
+    <p>{{ 'Welcome, ' + userName }}</p>
+    <p>The sum of 2 + 3 is {{ 2 + 3 }}</p>
+  `
+})
+export class AppComponent {
+  pageTitle = 'Angular Interpolation Example';
+  userName = 'John';
+}
+```
+
+In this example:
+
+- `{{ pageTitle }}`: Interpolates the value of the `pageTitle` property from the component class and displays it in the `<h1>` element.
+- `{{ 'Welcome, ' + userName }}`: Concatenates the string 'Welcome, ' with the value of the `userName` property and displays it in the `<p>` element.
+- `{{ 2 + 3 }}`: Evaluates the expression `2 + 3` and displays the result in the `<p>` element.
+
+Angular automatically updates the DOM when the values of these properties change in the component class. Interpolation is a powerful feature that makes it easy to bind dynamic data to your templates.
+
+
+**Property Binding (Component to View):**
+
+In this example, we'll bind a property from the component to an HTML element attribute.
+
+      The Property binding allows us to bind HTML element property to a property in the component. Whenever the value of the component changes, the Angular updates the element property in the View. You can set the properties such as class, href, src, textContent, etc using property binding.
+
+1. Create a simple component:
+
+```typescript
+// app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h1>{{ pageTitle }}</h1>
+    <img [src]="imageUrl" alt="Angular Logo">
+  `
+})
+export class AppComponent {
+  pageTitle = 'Angular One-Way Binding Example';
+  imageUrl = 'https://angular.io/assets/images/logos/angular/angular.png';
+}
+```
+
+In this example, we use property binding with `[src]` to bind the `imageUrl` property from the component to the `src` attribute of the `img` element.
+
+### Event Binding (View to Component):
+
+In this example, we'll bind an event from the view to a method in the component.
+
+2. Modify the component to include event binding:
+
+```typescript
+// app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <button (click)="showMessage()">Click me</button>
+    <p>{{ message }}</p>
+  `
+})
+export class AppComponent {
+  message: string = '';
+
+  showMessage(): void {
+    this.message = 'Button clicked!';
+  }
+}
+```
+
+In this example, we use event binding with `(click)` to bind the `showMessage()` method from the component to the `click` event of the `button` element.
+
+These examples illustrate the basic concepts of one-way data binding in Angular. Property binding allows you to set properties of HTML elements based on data in your component, while event binding allows you to respond to user actions and update data in your component.
 
 --- 
 
