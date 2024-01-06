@@ -1851,6 +1851,255 @@ Let’s consider a scenario where we want to conditionally display a list of ite
 In this example, when the “showList” flag is true, the <ng-container> and its contents will be rendered, displaying the list of items. When the flag is false, the entire <ng-container> and its contents will be omitted from the DOM. This allows for conditional rendering without introducing an extra HTML element.
 
 --- 
+### services short summary ?
+
+Consider there is a wedding function In a indian family.
+
+The function involves numerous guest coming and arranging food and other amenities for them.
+
+But just think if the family members are the one or they take the responsibilty to do each and every thing like 
+	A) Preparing food 
+	B) Arranging Hotels 
+
+In this case the family members wont be able to enjoy the function which is integral part.
+
+So Ideally What they do , they hire the agency or Professionals so that theirs work can be delegated and they can cfocus on what is important.
+
+
+==> same way is our component,
+
+
+==> same thing is with components, components needs data, but the thing is data can come from any of ways
+ a) can come from another component 
+ b) can come from server 
+
+
+If data is coming from other place like other comppnent or server, we have to write a code to fetch the data.
+
+==> "component here is a family , who has some important event , family takes care about event but cant look over all the things."
+
+But is my component concerned about how data is fetched or from where it is coming ?
+
+NO. A big No.
+
+it is only concerned about data.
+
+
+so lets compare this with categres and house analogy. 
+
+Is it necessary to keep the code which does not belongs to the component in the same component ?
+
+No .
+
+
+==> same is with component, we don’t want to put the code for fetching the data in the component class itself, because component is concerned only about data not about the way we fetch it.
+
+once the data is fetched we prvide the data to the component class.
+
+
+so where and who does this work for us ?
+
+A service . 
+
+A service is a class which can be injected or is used for providing assitance to the component classes.
+
+
+A Service is a class decorated with @Injectable decorator.
+
+now consider there are 2 components A and B. Both components neeed the list of customers enrolled data from the server. If the concept of services is not there then this thing we would have done in :
+
+In A component
+
+	code to fetch the customers enrolled.
+
+
+
+In B Component 	code to fetch the customers enrolled.
+
+
+
+
+This has below drawbacks :
+
+	1. Code is not centralized , and code redundancy 
+	2. Tight Coupling between the code and no sepration of concern (means component classes has the code which they are not dependend or concerned).
+	
+
+Service can help us to mitigate the drawbacks here by 
+	1. Reducing Coupling 
+	2. Reducing Code redundancy
+
+
+Now What Are classes and how they do look ?
+
+Services are classes, which contains the code for providing services to other components.
+
+Or we can say services act as a mediator 
+
+Component request to ----> Service -----> Server 
+
+Whats Different ?
+
+They are annotated with @injectable()
+
+@Injectable()
+Class DataService{
+
+
+}
+
+
+Question : How does component interacts with services ?
+
+Components ask for dependency in their constructor. 
+What actually happens when we use the selectfor for the component, angular instantiates that class.
+
+The concept here applicable is DEPENDENCY INJECTION.
+
+Our component depends upon DataService to get the data from the server, so DataService is Dependency for the component and Component is a consumer of the dependency.
+
+So now we know that DataService or any Service is a dependency for the component.
+
+
+
+==> So now how does componet uses the class to get the work done ?
+
+Now as we seprated out the logic from the component and placed in the seprate class, but now how the component will communicate with the service class to fetch the data or get information.
+
+
+As service is nothing just a class with methods so if component wants to use the methods of a service then it has to create the object of the class and can continue using its methods.
+
+
+But Work of angular is to eases the task of a developer, angular give the new way of creating objects which is dependency injection.
+
+
+What actually is dependency injection is ?
+
+Our component A and B depends upon the DataService class to get the data. 
+
+means A and B component Depends upon the DataService or DataService is a dependency for A and B Component.
+
+now What is injection ?
+
+Injection is a way to insert the dependency into the component.
+
+
+
+==> 
+
+"Dependency Injection (DI) is a technique in which a class receives its dependencies from external sources rather than creating them itself."
+
+<==
+
+
+Here our component is Consumer  that needs the dependency.
+
+
+and DataService is the dependency that we need in our componeny class.
+
+
+
+
+How we can inject the dependency in pur component ?
+
+
+First we have to let the module that we will be needing the these dependencies in our components by providing the services in providers array
+
+providers:[ServiceName]
+
+
+now what does providers do different ? Why we need to provide the service name here.
+
+
+==>Module is a group of related components and services and directives and modules.
+
+lets say a module contains 10 components ,
+
+2 components out of them depend on A service
+
+5 components dpend upon the B service 
+
+3 Components depend upon the C service 
+
+
+We need to tell the module that these services are which all components will need in their life stime
+
+
+providers : [Aservice,Bservice,Cservice]
+
+
+now it will be responsibility of module to manage the dependency. "Manage" means when module will be loaded module will create the object of all the services .
+
+If any component needs they will see object created in the module so they will get it from the module.
+
+But providing in providers array is dependency injection 
+
+injecting dependency is done in component class in constructor 
+
+
+now lets inject the dependency in the A component 
+
+export class Acomponent{
+
+// to inject the dependency we have to follow the below format.
+Constructor(accessModifer instancevariable: ServiceName)
+{
+}
+}
+
+
+Private/public/Protected dataService:DataService
+
+
+
+
+When we provide the service in the @ngModule of the root module or any eagerly loaded module, the will be available everywhere in the application.
+
+If we provide the services in the @Component, @pipe or @Directive then they are available only in that component and all of its child components
+
+The Services provided in the @ngModule of the lazy loaded module are available in that module only.
+
+
+
+
+==> 
+
+Each Injector creates a singleton object of the dependency registered by the provider.
+For Example, consider a service configured in @ngModule. Component A asks for the service it will get a new instance of the service. Now if Component B Asks for the same service, the injector does not create a new instance of the service, but it will reuse the already created service.
+
+
+What are singleton services ?
+
+
+Consider you want to get something from the market.
+you ordered your brther to get this 
+You ordered your siblings to get this 
+You ordered your friends to get this
+
+
+All of them visited the market and got the thing
+
+But what actually happened we wasted the 3 resources , where we could get that done by one .
+
+In Classes terminology we create a object , objects are the storage.
+What if we create multiple objects , they will eat up the space.
+
+So what are singleton services ?
+
+Services who instance is created only once and shared by all are services known as singleton services.
+
+How can I make my services singleton?
+
+
+By providing 
+
+provideIn:'root'
+
+Or adding services in 
+
+Providers of root module 
+
+--- 
 
 
 
