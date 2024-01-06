@@ -1238,6 +1238,619 @@ These examples illustrate the basic concepts of one-way data binding in Angular.
 
 --- 
 
+### what is 2 way data binding ?
+
+In one way data binding , we have seen data flows from either component to the view using `interpolation` and `property binding`.
+
+and data flows from the view to the component using `event binding`.
+
+lets take example of a input box of type text, and inside which we have a value property. lets say i bind the value property with the name variable in my ts file.
+   
+      // app.component.ts
+         name = "John"
+
+      // app.component.html
+
+      <input type="text" [value]="name">
+      {{name}}
+
+- let say if some user changes the name inside the input box, which is binded with name inside the ts file, will the name value also changes ???? 
+
+
+
+in this way i have to do things one is one way binding and second event binding .
+
+- there is a better way which is provided by angular, which is ngModel for 2 way binding.
+
+- ngModel is a part of FormsModule so we cannot durectly use it we have to import FormsModule in our app.module then we can use.
+
+
+   syntax: 
+
+         [(ngModel)] = "variable"
+
+---
+ ### what are child components ? 
+
+ When we generated our angular application , angular default provided us with app.component. App component is the root component or host component. 
+
+- Components are the re-usable individual unit.
+
+lets understand how the folder structure of the e commerce website will look like in the form of components and modules way .
+
+    Flipkart
+            | Common module
+                          | header Component
+                          | Footer Component 
+                          | Navbar Component 
+
+            | Mens Module 
+                         | Mens.component 
+            
+            | Womens Module 
+                        | Women Component 
+              
+  
+  **Here Module refers to the collection of related code** 
+-   Mens Module will have everytthing related to mens like all the components and services created for the mens module.
+
+- in this way it will help us to keep our code modular, and seprate.
+
+#### now lets come to our original question that are child components? 
+
+lets say we have 3 components 
+
+ *  App , Customers-Listing and Customer_Signup .
+
+  i want to show customer listing on my app or when page loads (idealy when angular application loads it will automatically load the app component via index.html and main.ts file).
+
+  if i want to show customer listing or lists of customer then there are 2 ways:
+
+  * Routing (To be Discussed)
+  * using selector in app component 
+
+  when we will add the selector of customer-list component in the ap component, the app component being the host or parent component others components will be treated as a child component. 
+
+**Going Ahead we will see how we can communicate with the child components** 
+---
+
+### What are directives in Angular ?
+
+The Angular directive helps us to manipulate the DOM. You can change the appearance, behavior, or layout of a DOM element using the Directives.
+
+**There are 3 Types of Directives :**
+
+* Structural Directives : Structural directives can change the DOM layout by adding and removing DOM elements. All structural Directives are preceded by Asterix symbol.
+
+
+* Attribute Directives : An Attribute or style directive can change the appearance or behavior of an element.
+
+
+
+--- 
+### How many types of Structural Directives are there ?
+In Angular, there are three main structural directives:
+
+1. **NgIf:**
+   - `*ngIf` is used for conditional rendering. It adds or removes elements from the DOM based on the truthiness of an expression.
+   - Example:
+     ```html
+     <div *ngIf="isVisible">This is visible</div>
+     ```
+
+2. **NgFor:**
+   - `*ngFor` is used for iteration. It repeats a set of elements for each item in an iterable such as an array.
+   - Example:
+     ```html
+     <ul>
+       <li *ngFor="let item of items">{{ item }}</li>
+     </ul>
+     ```
+
+3. **NgSwitch:**
+   - `*ngSwitch` is used for conditional rendering based on a switch expression. It's often combined with `*ngSwitchCase` and `*ngSwitchDefault`.
+   - Example:
+     ```html
+     <div [ngSwitch]="color">
+       <div *ngSwitchCase="'red'">Red color</div>
+       <div *ngSwitchCase="'blue'">Blue color</div>
+       <div *ngSwitchDefault>Default color</div>
+     </div>
+     ```
+
+These structural directives provide powerful tools for manipulating the structure of the DOM based on dynamic conditions or iterating over collections. They are prefixed with an asterisk `*` in the template syntax.
+
+
+---
+ ### how many attribute directives are there ?
+
+ Attribute directives in Angular are a type of directive that allow you to change the appearance or behavior of an element, component, or another directive by applying them as attributes in the HTML markup. Attribute directives are prefixed with `ng-` in many cases, but you can also create your own custom attribute directives.
+
+Here are some examples of built-in attribute directives in Angular:
+
+1. **NgClass:**
+   - `[ngClass]` allows you to conditionally apply CSS classes to an element based on the evaluation of an expression.
+   - Example:
+     ```html
+     <div [ngClass]="{'active': isActive, 'inactive': !isActive}">Toggle Class</div>
+     ```
+
+2. **NgStyle:**
+   - `[ngStyle]` allows you to conditionally apply inline styles to an element based on the evaluation of an expression.
+   - Example:
+     ```html
+     <div [ngStyle]="{'color': isRed ? 'red' : 'blue', 'font-size': isBig ? '20px' : '14px'}">Styled Text</div>
+     ```
+
+3. **NgModel:**
+   - `[(ngModel)]` is used for two-way data binding. It binds a model property to an input element, allowing changes in the input to reflect in the model and vice versa.
+   - Example:
+     ```html
+     <input [(ngModel)]="username" />
+     ```
+ 
+
+You can also create your own custom attribute directives to encapsulate and reuse specific behaviors in your Angular applications. Custom attribute directives are created using the `@Directive` decorator in Angular.
+
+--- 
+
+### why do we need ngClass when we can do attribute or property bindibg ?
+
+While you can use class property binding to conditionally apply classes to elements, the `ngClass` directive in Angular provides a more concise and expressive way to manage complex or dynamic class conditions. Here are some reasons why you might choose `ngClass` over direct class property binding:
+
+1. **Simplifies Code:**
+   - `ngClass` allows you to define multiple class conditions in a cleaner and more readable way. It's especially beneficial when dealing with multiple classes and complex conditions.
+
+     ```html
+     <!-- Using ngClass -->
+     <div [ngClass]="{'active': isActive, 'highlight': isHighlighted, 'error': hasError}">Content</div>
+
+     <!-- Using direct class property binding -->
+     <div [class.active]="isActive" [class.highlight]="isHighlighted" [class.error]="hasError">Content</div>
+     ```
+
+2. **Dynamic Classes:**
+   - `ngClass` is particularly useful for scenarios where the classes need to be determined dynamically based on component properties or expressions.
+
+     ```html
+     <div [ngClass]="{'active': isActive, 'disabled': isDisabled, 'custom-class': customCondition}">Content</div>
+     ```
+
+3. **Object or Array Syntax:**
+   - `ngClass` allows you to pass an object or an array to conditionally apply classes, providing flexibility in defining class conditions.
+
+     ```html
+     <!-- Object syntax -->
+     <div [ngClass]="{'active': isActive, 'highlight': isHighlighted, 'error': hasError}">Content</div>
+
+     <!-- Array syntax -->
+     <div [ngClass]="['class1', 'class2', condition ? 'class3' : 'class4']">Content</div>
+     ```
+
+4. **Expression Evaluation:**
+   - `ngClass` can evaluate expressions and functions to determine whether to apply a class.
+
+     ```html
+     <div [ngClass]="getClassObject()">Content</div>
+     ```
+
+5. **Default Classes:**
+   - `ngClass` allows you to specify default classes that are always applied, making it convenient for styling purposes.
+
+     ```html
+     <div [ngClass]="{'default-class': true, 'additional-class': condition}">Content</div>
+     ```
+
+In summary, while both approaches can be used for class binding, `ngClass` is a powerful and concise directive that offers additional features and syntax for managing dynamic and complex class conditions in your Angular templates. It provides a more declarative and readable way to express the logic for applying classes based on various conditions.
+
+--- 
+### what are pipes ?
+
+Angular Pipes takes data as input and formats or transform the data to display in the template.
+
+like :
+
+- Directices : they add behavior like add/remove/styling elements 
+- pipes : transforming the data 
+
+syntax : 
+
+    Expression | pipeOperator[:pipeArguments]
+
+
+lets say we have a name property in our ts file and we want to bind in the html or show it to the user, but name should be uppercase.
+
+**There are 3 ways we can avhieve this**
+- Using a class 
+- using or storing the name default in uppercase as "JOHN"
+- using pipes.
+
+    // app.components.ts
+
+      name = "john"
+
+    // app.component.html
+
+    {{name | uppercase}}
+
+
+  **Angular Built in pipes**
+
+  1. date pipe
+  2. uppercase pipe
+  3. lowercase pipe 
+  4. titlecase pipe 
+  5. slice pipe 
+  6. currency pipe 
+
+
+### what are services in angular why we need and what is dependency injection ?
+
+In Angular, services are a way to share data and functionality across different parts of an application. They are classes that can be injected into components and other services, and they are used to encapsulate logic that is not specific to a particular component.
+
+Services are a good way to organize and share code that is not directly related to the UI of your application. They can be used to abstract away complex logic, such as calling a REST API or performing calculations, and make it available to multiple components.
+
+- component's job is to enable only the user experience. A component should present properties and methods for data binding to mediate between the view and the application logic. The view is what the template renders and the application logic is what includes the notion of a model.
+
+ - lets take example of Mobile moudle and a component mobile-list 
+ which requires the list of mobiles avaialable in the inventory and for sale.
+
+* so mobile -list component will make an api call to fetch the mobiles list, so ideally we will be placing the function to fetch the details inside the mobile -list only. 
+this way our component keeps the data and functions which it does not directly needs.
+
+`if some other compoennr lets say accessories component also want to use the same fuinction which is defined inside the mobile-list component then it has to define the same in accessories component as well which will lead to code redundancy.`
+
+by combining each and every thing inside a component, the modularity of the component decreases and there is no abstraction of data. 
+
+so there comes services.
+
+**Services in angular are the classes which are used specific for the abstraction of logic**
+
+`A component should use services for tasks that don't involve the view or application logic. Services are good for tasks such as fetching data from the server, validating user input, or logging directly to the console. By defining such processing tasks in an injectable service class, you make those tasks available to any component.`
+
+- this is not a much do thing, its a principle with hekp of which we can seprate out our code and compoennt. 
+
+component should only contain code related to the view and data, 
+services should contain the data .
+
+## What Angular Services are used for
+
+- Features that are independent of components such a logging services
+- Share logic or data across components
+- Encapsulate external interactions like data access
+
+---
+### what is dependency injection ?
+
+https://angular.io/guide/dependency-injection
+
+---
+
+ ### what are lifecyle hooks of angular ?
+
+ like Humans also have a lifecycle
+ 
+ birth -> baby/Infant -> adolscent -> adult -> death 
+
+ same is with the components. 
+
+ - components are classes, and we know if we want to use the methods or fields of classes we need to instantiate the class first or create the object of the class and call its method.
+
+ * but when using angular, to use the component we just use its selector , and angular renders the view associated with the component.
+
+ **We didnt instantiate or created the object of the class so who does it** 
+
+ Answer --> Angular does it by itself, when we use selector of a component 
+
+    `<header></header>`
+   angular creates the object of the class and loads its properties and view.
+
+but there is also a lifecyle of a component class , which is known as life cycle hooks - 
+
+- component also goes with the life cyle of birth till death, in case of component classes those life cyle hooks are functions which are called when that event is occured. (eg: when component class is born or instantiates a function will be called).
+
+--- 
+### what are various life cyle hooks in angular ?
+
+As we know life cyle hooks are nothing just a callback function  which angular invokes during the component life cycle. 
+
+the various life cycle hooks are - 
+
+* ngOnChanges()
+* ngOnInit()
+* ngDoCheck()
+* ngAfterContentInit()
+* ngAfterContentChecked()
+* ngAfterViewInit()
+* ngAfterContentChecked()
+* ngOnDestory()
+
+**Angular first created or loads the component class then it renders the template or the view** 
+
+--- 
+### what is Change detection in angular ?
+
+Change detection is a mechanism by which angular detect the changes in the views. 
+
+lets say we have a variable in the component class and we bind it in the view using interpolation. 
+
+- when the data in the component class is changed it automatically gets updated in the view, this is known as change detection. 
+
+
+
+---
+### first life cyle hook - ngOnChanges ?
+
+**first life cyle hook which angular invoke is ngOnChanges()** 
+
+when ?
+
+#### - The Angular invokes the ngOnChanges life cycle hook whenever any data-bound input property of the component or directive changes. Initializing the Input properties is the first task angular carries during the change detection cycle. And if it detects any change in property, then it raises the ngOnChanges hook.
+
+- Input properties are those properties which we define using the @Input decorator. It is one of the ways by which a parent communicates with the child component.
+
+--- 
+### what is ngOnInit life cycle hook ?
+
+The Angular raises the ngOnInit hook after it creates the component and updates its input properties. It raises it after the ngOnChanges hook.
+
+This hook is fired only once and immediately after its creation (during the first change detection).
+
+---
+ ### what is ngDoCheck ?
+
+ The Angular invokes the ngDoCheck hook event during every change detection cycle. This hook is invoked even if there is no change in any of the properties.
+
+Angular invoke it after the ngOnChanges & ngOnInit hooks.
+
+Use this hook to Implement a custom change detection whenever Angular fails to detect the changes made to Input properties. This hook is convenient when you opt for the Onpush change detection strategy.
+
+--- 
+
+### what is ngAfterContentInit ?
+
+ngAfterContentInit Life cycle hook is called after the Component’s projected content has been fully initialized. Angular also updates the properties decorated with the ContentChild and ContentChildren before raising this hook. This hook is also raised, even if there is no content to project.
+
+The content here refers to the external content injected from the parent component via Content Projection.
+
+
+--- 
+
+### what is ngAfterContentChecked ?
+
+ngAfterContentChecked Life cycle hook is called during every change detection cycle after Angular finishes checking of component’s projected content. Angular also updates the properties decorated with the ContentChild and ContentChildren before raising this hook. Angular calls this hook even if there is no projected content in the component.
+
+
+--- 
+
+### ngAfterViewInit
+ngAfterViewInit hook is called after the Component’s View & all its child views are fully initialized. Angular also updates the properties decorated with the ViewChild & ViewChildren properties before raising this hook. 
+
+The View here refers to the template of the current component and all its child components & directives. 
+
+
+This hook is called during the first change detection cycle, where angular initializes the view for the first time.
+
+At this point, all the lifecycle hook methods & change detection of all child components & directives are processed & Component is entirely ready. 
+
+--- 
+
+### ngAfterViewChecked
+The Angular fires this hook after it checks & updates the component’s views and child views. This event is fired after the ngAfterViewInit and after that, during every change detection cycle.
+
+This hook is very similar to the ngAfterViewInit hook. Both are called after all the child components & directives are initialized and updated. The only difference is that ngAfterViewChecked is raised during every change detection cycle. While ngAfterViewInit during the first change detection cycle.
+
+--- 
+
+### what is ngOnDestroy ?
+
+This hook is called just before the Component/Directive instance is destroyed by Angular
+
+You can Perform any cleanup logic for the Component here. This is where you would like to Unsubscribe Observables and detach event handlers to avoid memory leaks.
+
+--- 
+
+### Summary of all life cycle hooks 
+
+Angular components go through a lifecycle during their creation, rendering, and destruction. Angular provides a set of lifecycle hooks that allow you to tap into different moments of the component's lifecycle. Here are the main lifecycle hooks in Angular:
+
+1. **ngOnChanges:**
+   - **When Called:** Called after the component's input properties change.
+   - **Purpose:** Allows you to respond to changes in input properties.
+
+2. **ngOnInit:**
+   - **When Called:** Called once, after the component is initialized.
+   - **Purpose:** Used for initialization logic. It's a good place to fetch data from a server.
+
+3. **ngDoCheck:**
+   - **When Called:** Called during every change detection run.
+   - **Purpose:** Allows you to implement your own change detection logic.
+
+4. **ngAfterContentInit:**
+   - **When Called:** Called once after the first `ngDoCheck`.
+   - **Purpose:** Respond to changes after the component's content (ng-content) has been initialized.
+
+5. **ngAfterContentChecked:**
+   - **When Called:** Called after every check of the component's content.
+   - **Purpose:** Respond to changes after the content has been checked.
+
+6. **ngAfterViewInit:**
+   - **When Called:** Called once after the first `ngAfterContentChecked`.
+   - **Purpose:** Respond to changes after the component's view (and child views) has been initialized.
+
+7. **ngAfterViewChecked:**
+   - **When Called:** Called after every check of the component's view (and child views).
+   - **Purpose:** Respond to changes after the view has been checked.
+
+8. **ngOnDestroy:**
+   - **When Called:** Called just before the component is destroyed.
+   - **Purpose:** Cleanup logic (unsubscribe from observables, clear intervals, etc.).
+
+Here's a brief overview of each hook:
+
+- **Initialization:**
+  - `ngOnInit` is commonly used for initialization logic.
+  - `ngAfterContentInit` and `ngAfterViewInit` are used when dealing with content projection and view initialization.
+
+- **Change Detection:**
+  - `ngOnChanges` is used to respond to changes in input properties.
+  - `ngDoCheck` allows you to implement custom change detection logic.
+  - `ngAfterContentChecked` and `ngAfterViewChecked` are used after content and view checks, respectively.
+
+- **Destruction:**
+  - `ngOnDestroy` is used for cleanup operations before the component is destroyed.
+
+  --- 
+### what is content projection ?
+
+Content projection in Angular is a mechanism that allows a component to accept and render content provided by its parent component. It provides a way to compose components and create more flexible and reusable component structures. Content projection is achieved using the `<ng-content>` element in the child component's template.
+
+Here's why content projection is needed and how it works:
+
+1. **Dynamic Component Composition:**
+   - Content projection enables dynamic composition of components by allowing a parent component to inject content into specific slots defined by the child component. This makes components more versatile and reusable.
+
+2. **Flexibility in Template Structure:**
+   - Content projection gives the child component control over its template structure, allowing it to determine where the content provided by the parent should be placed. This flexibility is especially useful when creating generic or container components.
+
+3. **Passing Arbitrary Content:**
+   - With content projection, the parent component can pass arbitrary content (HTML, other components, etc.) to the child component. This is beneficial when the child component needs to work with different types of content provided by different parent components.
+
+4. **Creating Container Components:**
+   - Content projection is often used to create container components that define a specific layout or structure and allow the parent component to inject content into that layout. This promotes the separation of concerns and modular design.
+
+5. **Encapsulation and Reusability:**
+   - Content projection enhances component encapsulation by allowing the child component to encapsulate its own template structure while still accepting external content. This promotes reusability as components can be composed in various ways.
+
+**Example:**
+
+Consider a simple example where a modal dialog component allows the parent component to provide custom content for the dialog body:
+
+```html
+<!-- Modal Component Template -->
+<div class="modal">
+  <div class="modal-header">
+    <h2>{{ title }}</h2>
+  </div>
+  <div class="modal-body">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer">
+    <button (click)="close()">Close</button>
+  </div>
+</div>
+```
+
+```html
+<!-- Parent Component Template -->
+<app-modal title="Custom Modal Title">
+  <p>This is the custom content for the modal body.</p>
+  <button (click)="handleButtonClick()">Click me</button>
+</app-modal>
+```
+
+In this example, the parent component uses the `<app-modal>` component and provides custom content for the modal body. The child component (`<app-modal>`) uses `<ng-content>` to project and render the content provided by the parent.
+
+In summary, content projection is a powerful feature in Angular that promotes component composition, flexibility, and reusability by allowing components to accept and work with dynamic content provided by their parent components.
+
+
+--- 
+
+
+### How content projection is diff from input ?
+
+In Angular, passing data between components can be done through both input properties and content projection. Here's a brief overview of the differences between these two approaches:
+
+1. **Input Properties:**
+
+   - **Definition:** In Angular, a child component can accept data from its parent component by using input properties. Input properties are defined in the child component with the `@Input` decorator.
+
+   - **Flow of Data:** Data flows from the parent component to the child component. The parent component sets the values for the input properties in the template where the child component is used.
+
+   - **Example:**
+     ```typescript
+     // Child Component
+     @Input() dataFromParent: any;
+     ```
+
+     ```html
+     <!-- Parent Component Template -->
+     <app-child [dataFromParent]="parentData"></app-child>
+     ```
+
+2. **Content Projection:**
+
+   - **Definition:** Content projection allows a parent component to project content (HTML, other components, etc.) into a designated area in the child component's template using the `<ng-content>` element.
+
+   - **Flow of Data:** The child component has control over its template structure and where the projected content is placed. The parent component provides the content, and the child component decides how to use it.
+
+   - **Example:**
+     ```html
+     <!-- Child Component Template -->
+     <div>
+       <h2>Child Component Content</h2>
+       <ng-content></ng-content>
+     </div>
+     ```
+
+     ```html
+     <!-- Parent Component Template -->
+     <app-child>
+       <p>Content projected from parent</p>
+     </app-child>
+     ```
+
+**Key Differences:**
+
+- **Direction of Data Flow:**
+  - **Input Properties:** Data flows from parent to child.
+  - **Content Projection:** Parent provides content, and the child decides how to use it.
+
+- **Control over Template Structure:**
+  - **Input Properties:** Child components have less control over the structure of their templates.
+  - **Content Projection:** Child components have more control over the structure of their templates, including where content is placed.
+
+- **Use Cases:**
+  - **Input Properties:** Suitable for passing specific data or configuration options from parent to child.
+  - **Content Projection:** Suitable when the child component needs to incorporate dynamic or arbitrary content provided by the parent.
+
+- **Flexibility:**
+  - **Input Properties:** More rigid in terms of data passing and template structure.
+  - **Content Projection:** More flexible as it allows the parent to provide arbitrary content.
+
+Both input properties and content projection are powerful techniques, and the choice between them depends on the specific requirements of your application and the desired level of flexibility in component composition.
+
+
+--- 
+
+
+### what is ng-container ?
+
+ng-container> is a non-rendered container element that allows us to apply structural directives without introducing additional DOM elements. It acts as a wrapper for multiple elements and provides a clean and concise way to group and manipulate them.
+
+
+Understanding <ng-container>
+<ng-container> is a non-rendered container element that allows us to apply structural directives without introducing additional DOM elements. It acts as a wrapper for multiple elements and provides a clean and concise way to group and manipulate them.
+
+When and Where to Use <ng-container>
+Structural Directives: <ng-container> is particularly useful when working with structural directives such as *ngIf, *ngFor, or *ngSwitchCase. It allows us to apply these directives to a group of elements without affecting the DOM structure.
+Template Organization: <ng-container> helps in organizing and grouping elements within your templates. It allows you to apply logic or conditions to a set of elements while keeping the markup clean and uncluttered.
+Coding Example
+Let’s consider a scenario where we want to conditionally display a list of items. We can use <ng-container> along with *ngIf to achieve this:
+
+
+
+    <ng-container *ngIf="showList">
+      <h2>List of Items</h2>
+      <ul>
+        <li *ngFor="let item of items">{{ item }}</li>
+      </ul>
+    </ng-container>
+    <button (click)="toggleList()">Toggle List</button>
+
+In this example, when the “showList” flag is true, the <ng-container> and its contents will be rendered, displaying the list of items. When the flag is false, the entire <ng-container> and its contents will be omitted from the DOM. This allows for conditional rendering without introducing an extra HTML element.
+
+--- 
 
 
 
