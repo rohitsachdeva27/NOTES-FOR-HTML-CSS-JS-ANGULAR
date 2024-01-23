@@ -2100,6 +2100,246 @@ Or adding services in
 Providers of root module 
 
 --- 
+### Routing in angular ?
+When we created our project in angular using ng new 
+
+We came across a option in angular which asks do you need routing y/n ?
+
+We have done y as of now.
+
+**But what is the use of that**
+
+
+    If we say "Y" the angular adds app.routing.module.ts file in our src->app folder.
+
+    And if reply it with "N"
+    Angular does not add app.routing.module.ts file.
+
+## *But what is this Routing file ?*
+
+the routing.ts file contains the information about the routes of application.
+
+* when we say routes we mean what should when user clicks on this link or button.
+
+
+---
+### Routing Summary 
+
+When we created our project in angular using ng new 
+
+We came across a option in angular which asks do you need routing y/n ?
+
+Initially we submitted -> y
+
+*But what is the use of that response y*
+
+If we say "Y" the angular adds app-routing.module.ts file in our src->app folder.
+
+And if reply it with "N"
+
+Angular does not add app-routing.module.ts file.
+
+Angular Handles Route in a different way like in normal html.
+
+In simple html say if we have 3 pages
+	1. First.html
+	2. Second.html
+	3. Main.html
+
+Say If I want to navigate to first.html page frpm main.html I have to give href like 
+
+<a href="first.html">First page</a>
+
+This way of navigation is one page to anopther page.
+
+But in Angular there is just a single page.
+	
+
+	So how does Angular handles that routing 
+
+
+What is Routing 
+
+Routing allows you to move from one part of the application to another part or one View to another View.
+
+In Angular Routing is handled by Routing Module.
+
+Router is a seprate module in angular inside @angular/router folder which handles the Routing related things.
+
+
+		How does Angular handles the Routing in the application
+		
+		
+Angular being the SPA, means there are not multiple pages. Just single page under which all other pages are shown. We can say in a parent and child behavior.
+
+
+Angular uses the routing module file to resolve the routes.
+
+In Angular we don’t use href attribute because it leads to the re loading of page.
+
+Instead we use routerLink and navigate method.
+
+
+	How do we define routes in Angular
+	
+
+We have a angular application there can be multiple components , to naviate to fromone component to another we have to define routes in app-routing module.ts file.
+
+Lets consider in our angular application we have login and signup components 
+
+2 links in app.component 
+
+Login.       Signup 
+
+When user clicks on Login -> login component should appear
+When user clicks on Signup-> Signup component should appear
+
+Step 1: 	Define route in routing.module.ts 
+	{path:'login',component:LoginComponent}
+Step	Define link on page 
+	<a routerLink = 'login'>Login Page </a>
+
+step 3	
+Add router outlet where to show the content.
+
+
+
+How does route looks like ???
+
+Whenever we serve our application we see the url as 
+
+Localhost:4200 -> if we have not modified the port 
+
+Lets consider a website such as flipkart or book my show.
+
+In that website there are varius categories like movies,plays.
+
+When we click on movies url becomes
+Bookmyshow/movies
+
+--> when user clicks on play url looks like 
+Bookmyshow/play
+
+--> when user clicks on offer url looks like 
+Bookmyshow/offers
+
+
+Here url refers to what page to be shown.
+
+
+--- 
+ here /offers means inside the folder bookmyshow -> show the contents inside the folder offers.
+
+--> bookmyshow/movies -> inside the bookmyshow folder show content inside the folder movies.
+
+
+	Child Routes
+	
+Consider a nested folder structure like 
+
+D:
+	Movies 
+			Action 
+				    old 
+				    new 
+					
+			Comedy
+				   old
+				    new
+
+
+If I want to go inside old action movies I would have to go like 
+
+D://movies/action/old 
+
+In url terms it would be 
+
+Movies/action/old
+
+
+Where action is a folder in itself and old is a child or sub folder.
+
+In same way there can be child components of child components.
+
+How do we give route for the child components.
+
+{
+	Path:'path-name',
+	Component: Component-to-load,
+	Children:[
+		//children routes here.
+	]
+}
+
+
+
+Route Params
+
+Consider there are 2 components 
+	1. Products -> Listing of all Products 
+	2. Products Details -> it needs the id of the product to be shown it shows the details of the product selected.
+
+
+So route for products page will look like 
+
+{
+	Path:'products',
+	Component:ProductComponent
+}
+
+// inside product component we will show list of products.
+
+When user clicks on products I want to show the details of product and details page should be child route of products.
+
+Note : --> in this case we need the id of the product to be selected to pass to the component to show the detail.
+
+There are 2 ways we can do this:
+	1. Using services
+	2. Using route params
+	
+
+Then route would look like:
+
+/details/2 -> to define a route like this we can do 
+
+{
+Path:'details/:id',
+Component:DetailsCOmponent
+}
+
+
+But how component willl get this data of id ????
+
+USING THE ACTIVATED ROUTE SERVICE.
+
+How to use activated route to get the route params
+
+
+Activated Route is a service, so first we have to inject the service.
+
+Then activatedRoute Service provudes us with the snapshot of the url.
+
+From that snapshot object we can get the params object.
+
+
+
+QueryParams 
+
+Just like params which are in the form of route params like route/:id pr something , 
+
+Query parameters are parameters attached to the end of a URL and separated from the URL by a question mark (?).
+
+
+For example, in `https://www.google.com/search?q=abstract%20api`,
+
+Query parameters are additonal way to pass information to component or url. 
+
+Params are mandatory 
+Query params are optional
+
+----
+
+
 
 
 
